@@ -20,6 +20,7 @@ class HeadController extends HomebaseController{
         $this->assign('teacher_active', "");
         $this->assign('school_active', "");
         $this->assign('recruit_active', "");
+        $this->assign('join_active', "");
         $this->assign('about_active', "");
     }
 
@@ -44,6 +45,10 @@ class HeadController extends HomebaseController{
             case "recruit":
                 $recruit_active = "active";
                 $this->assign('recruit_active', $recruit_active);
+                break;
+            case "join":
+                $join_active = "active";
+                $this->assign('join_active', $join_active);
                 break;
             case "about":
                 $about_active = "active";

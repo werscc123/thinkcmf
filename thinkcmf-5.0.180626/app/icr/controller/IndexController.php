@@ -18,5 +18,9 @@ class IndexController extends HomebaseController{
         $head_controller->setHeaderActive("home");
         return $this->fetch(':home');
     }
+    //提交预约
+    public function mmmp(){
+       $this->result($this->request->param(),0,"success",'json');
+    }
 
 }
