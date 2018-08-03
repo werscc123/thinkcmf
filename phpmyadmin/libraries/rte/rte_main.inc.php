@@ -5,39 +5,30 @@
  *
  * @package PhpMyAdmin
  */
-use PhpMyAdmin\Response;
-use PhpMyAdmin\Rte\Events;
-use PhpMyAdmin\Rte\Routines;
-use PhpMyAdmin\Rte\Triggers;
-use PhpMyAdmin\Url;
-
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-$response = Response::getInstance();
+/**
+ * Include all other files that are common
+ * to routines, triggers and events.
+ */
+require_once './libraries/rte/rte_words.lib.php';
+require_once './libraries/rte/rte_export.lib.php';
+require_once './libraries/rte/rte_list.lib.php';
+require_once './libraries/rte/rte_footer.lib.php';
 
-if (! $response->isAjax()) {
+if ($GLOBALS['is_ajax_request'] != true) {
     /**
      * Displays the header and tabs
      */
-    if (! empty($table) && in_array($table, $GLOBALS['dbi']->getTables($db))) {
-        include_once './libraries/tbl_common.inc.php';
+    if (! empty($table) && in_array($table, PMA_DBI_get_tables($db))) {
+        include_once './libraries/tbl_common.php';
+        include_once './libraries/tbl_links.inc.php';
     } else {
         $table = '';
         include_once './libraries/db_common.inc.php';
-
-        list(
-            $tables,
-            $num_tables,
-            $total_num_tables,
-            $sub_part,
-            $is_show_stats,
-            $db_is_system_schema,
-            $tooltip_truename,
-            $tooltip_aliasname,
-            $pos
-        ) = PhpMyAdmin\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+        include_once './libraries/db_info.inc.php';
     }
 } else {
     /**
@@ -45,25 +36,38 @@ if (! $response->isAjax()) {
      * to manually select the required database and
      * create the missing $url_query variable
      */
-    if (strlen($db) > 0) {
-        $GLOBALS['dbi']->selectDb($db);
+    if (strlen($db)) {
+        PMA_DBI_select_db($db);
         if (! isset($url_query)) {
-            $url_query = Url::getCommon(
-                array(
-                    'db' => $db, 'table' => $table
-                )
-            );
+            $url_query = PMA_generate_common_url($db, $table);
         }
     }
 }
 
 /**
- * Create labels for the list
+ * Generate the conditional classes that will
+ * be used to attach jQuery events to links
  */
-$titles = PhpMyAdmin\Util::buildActionTitles();
+$ajax_class = array('add'    => '',
+                    'edit'   => '',
+                    'exec'   => '',
+                    'drop'   => '',
+                    'export' => '');
+if ($GLOBALS['cfg']['AjaxEnable']) {
+    $ajax_class = array('add'    => 'class="ajax_add_anchor"',
+                        'edit'   => 'class="ajax_edit_anchor"',
+                        'exec'   => 'class="ajax_exec_anchor"',
+                        'drop'   => 'class="ajax_drop_anchor"',
+                        'export' => 'class="ajax_export_anchor"');
+}
 
 /**
- * Keep a list of errors that occurred while
+ * Create labels for the list
+ */
+$titles = PMA_buildActionTitles();
+
+/**
+ * Keep a list of errors that occured while
  * processing an 'Add' or 'Edit' operation.
  */
 $errors = array();
@@ -74,16 +78,21 @@ $errors = array();
  */
 switch ($_PMA_RTE) {
 case 'RTN':
-    $type = null;
-    if (isset($_REQUEST['type'])) {
-        $type = $_REQUEST['type'];
-    }
-    Routines::main($type);
+    PMA_RTN_main();
     break;
 case 'TRI':
-    Triggers::main();
+    PMA_TRI_main();
     break;
 case 'EVN':
-    Events::main();
+    PMA_EVN_main();
     break;
 }
+
+/**
+ * Display the footer, if necessary
+ */
+if ($GLOBALS['is_ajax_request'] != true) {
+    include './libraries/footer.inc.php';
+}
+
+?>

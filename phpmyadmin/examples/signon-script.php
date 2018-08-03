@@ -7,7 +7,7 @@
  * phpMyAdmin, it is not intended to be perfect code and look, only
  * shows how you can integrate this functionality in your application.
  *
- * @package    PhpMyAdmin
+ * @package PhpMyAdmin
  * @subpackage Example
  */
 
@@ -17,19 +17,12 @@
  *
  * It can optionally use configured username as parameter.
  *
- * @param string $user User name
- *
+ * @param string $user
  * @return array
  */
 function get_login_credentials($user)
 {
-    /* Optionally we can use passed username */
-    if (!empty($user)) {
-        return array($user, 'password');
-    }
-
-    /* Here we would retrieve the credentials */
-    $credentials = array('root', '');
-
-    return $credentials;
+    return array('root', '');
 }
+
+?>

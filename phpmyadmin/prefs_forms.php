@@ -5,59 +5,59 @@
  *
  * @package PhpMyAdmin
  */
-use PhpMyAdmin\Config\ConfigFile;
-use PhpMyAdmin\Config\Forms\User\UserFormList;
-use PhpMyAdmin\Core;
-use PhpMyAdmin\Response;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\UserPreferences;
 
 /**
  * Gets some core libraries and displays a top message if required
  */
-require_once 'libraries/common.inc.php';
+require_once './libraries/common.inc.php';
+require_once './libraries/user_preferences.lib.php';
+require_once './libraries/config/config_functions.lib.php';
+require_once './libraries/config/messages.inc.php';
+require_once './libraries/config/ConfigFile.class.php';
+require_once './libraries/config/Form.class.php';
+require_once './libraries/config/FormDisplay.class.php';
+require './libraries/config/user_preferences.forms.php';
 
-$userPreferences = new UserPreferences();
-
-$cf = new ConfigFile($GLOBALS['PMA_Config']->base_settings);
-$userPreferences->pageInit($cf);
+PMA_userprefs_pageinit();
 
 // handle form processing
 
-$form_param = isset($_GET['form']) ? $_GET['form'] : null;
-$form_class = UserFormList::get($form_param);
-if (is_null($form_class)) {
-    Core::fatalError(__('Incorrect form specified!'));
+$form_param = filter_input(INPUT_GET, 'form');
+if (! isset($forms[$form_param])) {
+    $forms_keys = array_keys($forms);
+    $form_param = array_shift($forms_keys);
 }
 
-$form_display = new $form_class($cf, 1);
+$form_display = new FormDisplay();
+foreach ($forms[$form_param] as $form_name => $form) {
+    // skip Developer form if no setting is available
+    if ($form_name == 'Developer' && !$GLOBALS['cfg']['UserprefsDeveloperTab']) {
+        continue;
+    }
+    $form_display->registerForm($form_name, $form, 1);
+}
 
 if (isset($_POST['revert'])) {
     // revert erroneous fields to their default values
     $form_display->fixErrors();
     // redirect
     $url_params = array('form' => $form_param);
-    Core::sendHeaderLocation(
-        './prefs_forms.php'
-        . Url::getCommonRaw($url_params)
-    );
+    PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . 'prefs_forms.php'
+            . PMA_generate_common_url($url_params, '&'));
     exit;
 }
 
 $error = null;
 if ($form_display->process(false) && !$form_display->hasErrors()) {
     // save settings
-    $result = $userPreferences->save($cf->getConfigArray());
+    $old_settings = PMA_load_userprefs();
+    $result = PMA_save_userprefs(ConfigFile::getInstance()->getConfigArray());
     if ($result === true) {
         // reload config
         $GLOBALS['PMA_Config']->loadUserPreferences();
-        $tabHash = isset($_POST['tab_hash']) ? $_POST['tab_hash'] : null;
-        $hash = ltrim($tabHash, '#');
-        $userPreferences->redirect(
-            'prefs_forms.php',
-            array('form' => $form_param),
-            $hash
-        );
+        $hash = ltrim(filter_input(INPUT_POST, 'tab_hash'), '#');
+        PMA_userprefs_redirect($forms, $old_settings, 'prefs_forms.php', array(
+            'form' => $form_param), $hash);
         exit;
     } else {
         $error = $result;
@@ -65,12 +65,9 @@ if ($form_display->process(false) && !$form_display->hasErrors()) {
 }
 
 // display forms
-$response = Response::getInstance();
-$header   = $response->getHeader();
-$scripts  = $header->getScripts();
-$scripts->addFile('config.js');
-
-require 'libraries/user_preferences.inc.php';
+$GLOBALS['js_include'][] = 'config.js';
+require './libraries/header.inc.php';
+require './libraries/user_preferences.inc.php';
 if ($error) {
     $error->display();
 }
@@ -78,17 +75,15 @@ if ($form_display->hasErrors()) {
     // form has errors
     ?>
     <div class="error config-form">
-        <b>
-            <?php echo __('Cannot save settings, submitted form contains errors!') ?>
-        </b>
-        <?php echo $form_display->displayErrors(); ?>
+        <b><?php echo __('Cannot save settings, submitted form contains errors') ?></b>
+        <?php $form_display->displayErrors(); ?>
     </div>
     <?php
 }
-echo $form_display->getDisplay(true, true);
+$form_display->display(true, true);
 
-if ($response->isAjax()) {
-    $response->addJSON('_disableNaviSettings', true);
-} else {
-    define('PMA_DISABLE_NAVI_SETTINGS', true);
-}
+/**
+ * Displays the footer
+ */
+require './libraries/footer.inc.php';
+?>

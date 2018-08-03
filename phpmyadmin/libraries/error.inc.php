@@ -5,24 +5,22 @@
  *
  * @package PhpMyAdmin
  */
-use PhpMyAdmin\Sanitize;
 
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-if (! defined('TESTSUITE')) {
-    http_response_code(500);
+if (!defined('TESTSUITE')) {
     header('Content-Type: text/html; charset=utf-8');
 }
 ?>
-<!DOCTYPE HTML>
-<html lang="<?php echo $lang; ?>" dir="<?php echo $dir; ?>">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang; ?>" dir="<?php echo $dir; ?>">
 <head>
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
     <title>phpMyAdmin</title>
-    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <style type="text/css">
     <!--
     html {
@@ -55,6 +53,7 @@ if (! defined('TESTSUITE')) {
 </head>
 <body>
 <h1>phpMyAdmin - <?php echo $error_header; ?></h1>
-<p><?php echo Sanitize::sanitize($error_message); ?></p>
+<p><?php echo PMA_sanitize($error_message); ?></p>
 </body>
 </html>
+
