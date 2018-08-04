@@ -73,6 +73,13 @@ class SchoolModel extends Model
     public function updateSchool($data)
     {
         $sid =$data['id'];
+        if(empty(Db::name('icr_school')
+            ->where('id',$sid)
+            ->find()))
+        {
+            echo "不存在";
+            return;
+        }
         Db::name('icr_school')
             ->where('id',$sid)
             ->update([
@@ -90,6 +97,13 @@ class SchoolModel extends Model
     public function updateActivity($data)
     {
         $aid =$data['id'];
+        if(empty(Db::name('icr_activity')
+            ->where('id',$aid)
+            ->find()))
+        {
+            echo "不存在";
+            return;
+        }
         Db::name('icr_school')
             ->where('id',$aid)
             ->update([
@@ -108,6 +122,13 @@ class SchoolModel extends Model
      */
     public function deleteSchool($id)
     {
+        if(empty(Db::name('icr_school')
+            ->where('id',$id)
+            ->find()))
+        {
+            echo "不存在";
+            return;
+        }
         Db::name('icr_school')->where('id',$id)->delete();
     }
 
@@ -118,6 +139,13 @@ class SchoolModel extends Model
      */
     public function deletePicture($id)
     {
+        if(empty(Db::name('icr_picture')
+            ->where('id',$id)
+            ->find()))
+        {
+            echo "不存在";
+            return;
+        }
         Db::name('icr_picture')->where('id',$id)->delete();
     }
 
@@ -128,6 +156,13 @@ class SchoolModel extends Model
      */
     public function deleteActivity($id)
     {
+        if(empty(Db::name('icr_activity')
+            ->where('id',$id)
+            ->find()))
+        {
+            echo "不存在";
+            return;
+        }
         Db::name('icr_activity')->where('id',$id)->delete();
     }
 

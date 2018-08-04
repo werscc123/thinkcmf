@@ -43,6 +43,13 @@ class FeedbackModel extends Model
     public function updateFeedback($data)
     {
         $fid =$data['id'];
+        if(empty(Db::name('icr_feedback')
+            ->where('id',$fid)
+            ->find()))
+        {
+            echo "不存在";
+            return;
+        }
         Db::name('icr_feedback')
             ->where('id',$fid)
             ->update([
@@ -60,6 +67,13 @@ class FeedbackModel extends Model
      */
     public function deleteFeedback($id)
     {
+        if(empty(Db::name('icr_feedback')
+            ->where('id',$id)
+            ->find()))
+        {
+            echo "不存在";
+            return;
+        }
         Db::name('icr_feedback')->where('id',$id)->delete();
     }
 

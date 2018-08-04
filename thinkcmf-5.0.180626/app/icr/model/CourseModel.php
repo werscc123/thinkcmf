@@ -134,6 +134,13 @@ class CourseModel extends Model
     public function updateCourse($data)
     {
         $cid =$data['id'];
+        if(empty(Db::name('icr_course')
+            ->where('id',$cid)
+            ->find()))
+        {
+            echo "课程不存在";
+            return;
+        }
         Db::name('icr_course')
             ->where('id',$cid)
             ->update(['name' => $data['name'],
@@ -141,7 +148,8 @@ class CourseModel extends Model
                     'level' => $data['level'],
                     'goal' => $data['goal']]
                     );
-        Db::name('icr_ctype_intersect')->where('id',$cid)->delete();
+        if(!empty(Db::name('icr_ctype_intersect')->where('id',$cid)->select()))
+            Db::name('icr_ctype_intersect')->where('id',$cid)->delete();
         //绑定课程类别
         $course_type = $data['type'];
         if(is_array($course_type)) {
@@ -199,6 +207,13 @@ class CourseModel extends Model
      */
     public function deleteCourse($id)
     {
+        if(empty(Db::name('icr_course')
+            ->where('id',$id)
+            ->find()))
+        {
+            echo "课程不存在";
+            return;
+        }
         Db::name('icr_course')->where('id',$id)->delete();
         Db::name('icr_ctype_intersect')->where('cid',$id)->delete();
         Db::name('icr_cteacher_intersect')->where('cid',$id)->delete();

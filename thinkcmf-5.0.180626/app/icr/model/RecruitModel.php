@@ -43,9 +43,16 @@ class RecruitModel extends Model
      */
     public function updateRecruit($data)
     {
-        $fid =$data['id'];
+        $rid =$data['id'];
+        if(empty(Db::name('icr_feedback')
+            ->where('id',$rid)
+            ->find()))
+        {
+            echo "不存在";
+            return;
+        }
         Db::name('icr_recruit')
-            ->where('id',$fid)
+            ->where('id',$rid)
             ->update([
                     'position' => $data['position'],
                     'desc' => $data['desc'],
@@ -62,6 +69,13 @@ class RecruitModel extends Model
      */
     public function deleteRecruit($id)
     {
+        if(empty(Db::name('icr_recruit')
+            ->where('id',$id)
+            ->find()))
+        {
+            echo "不存在";
+            return;
+        }
         Db::name('icr_recruit')->where('id',$id)->delete();
     }
 
