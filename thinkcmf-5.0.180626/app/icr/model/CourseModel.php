@@ -227,6 +227,65 @@ class CourseModel extends Model
     }
 
     /**
+     * 通过课程id查询课程
+     * @param $phone
+     * @return
+     */
+    public function getCourseByID($cid)
+    {
+        return Db::name('icr_course')->where('id',$cid)->find();
+    }
+
+    /**
+     * 通过课程名查询课程
+     * @param $phone
+     * @return
+     */
+    public function getCourseByName($name)
+    {
+        return Db::name('icr_course')->where('name','like',$name)->find();
+    }
+
+    /**
+     * 通过课程等级查询课程
+     * @param $phone
+     * @return
+     */
+    public function getCourseByLevel($level)
+    {
+        return Db::name('icr_course')->where('level',$level)->select();
+    }
+
+    /**
+     * 通过课程类别查询课程
+     * @param $phone
+     * @return
+     */
+    public function getCourseByType($type)
+    {
+        return Db::name('icr_course')->where('type',$type)->select();
+    }
+
+    /**
+     * 通过教师id查询课程
+     * @param $cid
+     * @return
+     */
+    public function getCourseByTeacher($tid)
+    {
+        $cid = Db::name('icr_cteacher_intersect')->where('tid',$tid)->select();
+        if(is_array($cid)) {
+            $course_list = [];
+            foreach ($cid as $value) {
+                array_push($course_list, Db::name('icr_course')->where('id',$value)->find());
+            }
+            return $course_list;
+        } else {
+            return Db::name('icr_course')->where('id',$cid)->find();
+        }
+    }
+
+    /**
      * 通过手机号查询订单
      * @param $phone
      * @return

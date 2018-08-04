@@ -238,6 +238,66 @@ class CourseController extends HomebaseController{
     }
 
     /**
+     * 通过课程id查询课程
+     * @param $data
+     * @return
+     */
+    public function getCourseByID()
+    {
+        $cid = $_GET['id'];
+        $course_model = new CourseModel();
+        return $course_model->getCourseByID($cid);
+    }
+
+    /**
+     * 通过课程名查询课程
+     * @param $data
+     * @return
+     */
+    public function getCourseByName()
+    {
+        $name = $_GET['name'];
+        $course_model = new CourseModel();
+        return $course_model->getCourseByName($name);
+    }
+
+    /**
+     * 通过课程等级查询课程
+     * @param $data
+     * @return
+     */
+    public function getCourseByLevel()
+    {
+        $level = $_GET['level'];
+        $course_model = new CourseModel();
+        return $course_model->getCourseByLevel($level);
+    }
+
+    /**
+     * 通过课程类别查询课程
+     * @param $data
+     * @return
+     */
+    public function getCourseByType()
+    {
+        $type = $_GET['type'];
+        $course_model = new CourseModel();
+        return $course_model->getCourseByType($type);
+    }
+
+    /**
+     * 通过教师查询课程
+     * @param $data
+     * @return
+     */
+    public function getCourseByTeacher()
+    {
+        $tid = $_GET['teacher_id'];
+        $course_model = new CourseModel();
+        return $course_model->getCourseByTeacher($tid);
+    }
+
+    /**
      * 通过手机号查询订单
      * @param $data
      * @return

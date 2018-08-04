@@ -72,9 +72,9 @@ class SchoolModel extends Model
      */
     public function updateSchool($data)
     {
-        $aid =$data['id'];
+        $sid =$data['id'];
         Db::name('icr_school')
-            ->where('id',$aid)
+            ->where('id',$sid)
             ->update([
                     'name' => $data['name'],
                     'location' => $data['location'],
@@ -129,5 +129,125 @@ class SchoolModel extends Model
     public function deleteActivity($id)
     {
         Db::name('icr_activity')->where('id',$id)->delete();
+    }
+
+    /**
+     * 通过id查询校区
+     * @param $data
+     * @return
+     */
+    public function getSchoolByID($id)
+    {
+        return Db::name('icr_school')->where('id',$id)->find();
+    }
+
+    /**
+     * 通过名称查询校区
+     * @param $data
+     * @return
+     */
+    public function getSchoolByName($name)
+    {
+        return Db::name('icr_school')->where('name','like',$name)->select();
+    }
+
+    /**
+     * 通过位置查询校区
+     * @param $data
+     * @return
+     */
+    public function getSchoolByLocation($location)
+    {
+        return Db::name('icr_school')->where('location','like',$location)->select();
+    }
+
+    /**
+     * 通过城市查询校区
+     * @param $data
+     * @return
+     */
+    public function getSchoolByCity($city)
+    {
+        return Db::name('icr_school')->where('city',$city)->select();
+    }
+
+    /**
+     * 通过id查询图片
+     * @param $data
+     * @return
+     */
+    public function getPictureByID($id)
+    {
+        return Db::name('icr_picture')->where('id',$id)->find();
+    }
+
+    /**
+     * 通过id查询活动
+     * @param $data
+     * @return
+     */
+    public function getActivityByID($id)
+    {
+        return Db::name('icr_activity')->where('id',$id)->find();
+    }
+
+    /**
+     * 通过名称查询活动
+     * @param $data
+     * @return
+     */
+    public function getActivityByName($name)
+    {
+        Db::name('icr_activity')->where('name','like',$name)->select();
+    }
+
+    /**
+     * 通过内容查询活动
+     * @param $data
+     * @return
+     */
+    public function getActivityByDesc($desc)
+    {
+        return Db::name('icr_activity')->where('desc','like',$desc)->select();
+    }
+
+    /**
+     * 通过开始时间查询活动
+     * @param $data
+     * @return
+     */
+    public function getActivityByStartTime($start_time)
+    {
+        Db::name('icr_activity')->where('start_time',$start_time)->select();
+    }
+
+    /**
+     * 通过截止时间查询活动
+     * @param $data
+     * @return
+     */
+    public function getActivityByEndTime($end_time)
+    {
+        return Db::name('icr_activity')->where('end_time',$end_time)->select();
+    }
+
+    /**
+     * 查询指定开始时间之后的活动
+     * @param $data
+     * @return
+     */
+    public function getActivityAfterStartTime($start_time)
+    {
+        return Db::name('icr_activity')->where('start_time','egt',$start_time)->select();
+    }
+
+    /**
+     * 查询指定截止时间之前的活动
+     * @param $data
+     * @return
+     */
+    public function getActivityBeforeEndTime($end_time)
+    {
+        return Db::name('icr_activity')->where('end_time','elt',$end_time)->select();
     }
 }

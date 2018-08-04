@@ -71,4 +71,48 @@ class FeedbackController extends HomebaseController{
         $feedback_model = new FeedbackModel();
         $feedback_model->deleteFeedback($_GET['id']);
     }
+
+    /**
+     * 通过id查询反馈
+     * @param $data
+     * @return
+     */
+    public function getFeedbackByID()
+    {
+        $feedback_model = new FeedbackModel();
+        return $feedback_model->getFeedbackByID($_GET['id']);
+    }
+
+    /**
+     * 通过课程id查询反馈
+     * @param $data
+     * @return
+     */
+    public function getFeedbackByCID()
+    {
+        $feedback_model = new FeedbackModel();
+        return $feedback_model->getFeedbackByCID($_GET['cid']);
+    }
+
+    /**
+     * 通过用户id查询反馈
+     * @param $data
+     * @return
+     */
+    public function getFeedbackByUID()
+    {
+        $feedback_model = new FeedbackModel();
+        return $feedback_model->getFeedbackByUID($_GET['uid']);
+    }
+
+    /**
+     * 通过类别查询反馈
+     * @param $type
+     * @return
+     */
+    public function getFeedbackByType()
+    {
+        $feedback_model = new FeedbackModel();
+        return $feedback_model->getFeedbackByType($_GET['type']);
+    }
 }

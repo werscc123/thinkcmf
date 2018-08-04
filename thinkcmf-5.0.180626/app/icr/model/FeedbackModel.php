@@ -62,4 +62,44 @@ class FeedbackModel extends Model
     {
         Db::name('icr_feedback')->where('id',$id)->delete();
     }
+
+    /**
+     * 通过id查询反馈
+     * @param $data
+     * @return
+     */
+    public function getFeedbackByID($id)
+    {
+        return  Db::name('icr_feedback')->where('id',$id)->find();
+    }
+
+    /**
+     * 通过课程id查询反馈
+     * @param $data
+     * @return
+     */
+    public function getFeedbackByCID($cid)
+    {
+        return Db::name('icr_feedback')->where('cid',$cid)->select();
+    }
+
+    /**
+     * 通过用户id查询反馈
+     * @param $data
+     * @return
+     */
+    public function getFeedbackByUID($uid)
+    {
+        return Db::name('icr_feedback')->where('uid',$uid)->select();
+    }
+
+    /**
+     * 通过类别查询反馈
+     * @param $type
+     * @return
+     */
+    public function getFeedbackByType($type)
+    {
+        return Db::name('icr_feedback')->where('type',$type)->select();
+    }
 }

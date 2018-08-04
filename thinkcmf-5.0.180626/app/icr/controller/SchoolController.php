@@ -165,4 +165,136 @@ class SchoolController extends HomebaseController{
         $school_model->deleteActivity($_GET['id']);
     }
 
+    /**
+     * 通过id查询校区
+     * @param $data
+     * @return
+     */
+    public function getSchoolByID()
+    {
+        $school_model = new SchoolModel();
+        return $school_model->getSchoolByID($_GET['id']);
+    }
+
+    /**
+     * 通过名称查询校区
+     * @param $data
+     * @return
+     */
+    public function getSchoolByName()
+    {
+        $school_model = new SchoolModel();
+        return $school_model->getSchoolByName($_GET['name']);
+    }
+
+    /**
+     * 通过位置查询校区
+     * @param $data
+     * @return
+     */
+    public function getSchoolByLocation()
+    {
+        $school_model = new SchoolModel();
+        return $school_model->getSchoolByLocation($_GET['location']);
+    }
+
+    /**
+     * 通过城市查询校区
+     * @param $data
+     * @return
+     */
+    public function getSchoolByCity()
+    {
+        $school_model = new SchoolModel();
+        return $school_model->getSchoolByCity($_GET['city']);
+    }
+
+    /**
+     * 通过id查询图片
+     * @param $data
+     * @return
+     */
+    public function getPictureByID()
+    {
+        $school_model = new SchoolModel();
+        return $school_model->getPictureByID($_GET['id']);
+    }
+
+    /**
+     * 通过id查询活动
+     * @param $data
+     * @return
+     */
+    public function getActivityByID()
+    {
+        $school_model = new SchoolModel();
+        return $school_model->getActivityByID($_GET['id']);
+    }
+
+    /**
+     * 通过名称查询活动
+     * @param $data
+     * @return
+     */
+    public function getActivityByName()
+    {
+        $school_model = new SchoolModel();
+        return $school_model->getActivityByName($_GET['name']);
+    }
+
+    /**
+     * 通过内容查询活动
+     * @param $data
+     * @return
+     */
+    public function getActivityByDesc()
+    {
+        $school_model = new SchoolModel();
+        return $school_model->getActivityByDesc($_GET['desc']);
+    }
+
+    /**
+     * 通过开始时间查询活动
+     * @param $data
+     * @return
+     */
+    public function getActivityByStartTime()
+    {
+        $school_model = new SchoolModel();
+        return $school_model->getActivityByStartTime($_GET['start_time']);
+    }
+
+    /**
+     * 通过截止时间查询活动
+     * @param $data
+     * @return
+     */
+    public function getActivityByEndTime()
+    {
+        $school_model = new SchoolModel();
+        return $school_model->getActivityByEndTime($_GET['end_time']);
+    }
+
+    /**
+     * 查询指定开始时间之后的活动
+     * @param $data
+     * @return
+     */
+    public function getActivityAfterStartTime()
+    {
+        $school_model = new SchoolModel();
+        return $school_model->getActivityAfterStartTime($_GET['start_time']);
+    }
+
+    /**
+     * 查询指定截止时间之前的活动
+     * @param $data
+     * @return
+     */
+    public function getActivityBeforeEndTime()
+    {
+        $school_model = new SchoolModel();
+        return $school_model->getActivityBeforeEndTime($_GET['end_time']);
+    }
+
 }

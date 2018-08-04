@@ -72,4 +72,114 @@ class TeacherController extends HomebaseController{
         $teacher_model->deleteTeacher($_GET['id']);
     }
 
+    /**
+     * 通过id查询教师
+     * @param $data
+     * @return
+     */
+    public function getTeacherByID()
+    {
+        $teacher_model = new TeacherModel();
+        return $teacher_model->getTeacherByID($_GET['id']);
+    }
+
+    /**
+     * 通过姓名查询教师
+     * @param $data
+     * @return
+     */
+    public function getTeacherByName()
+    {
+        $teacher_model = new TeacherModel();
+        return $teacher_model->getTeacherByName($_GET['name']);
+    }
+
+    /**
+     * 通过职位查询教师
+     * @param $data
+     * @return
+     */
+    public function getTeacherByPosition()
+    {
+        $teacher_model = new TeacherModel();
+        return $teacher_model->getTeacherByPosition($_GET['position']);
+    }
+
+    /**
+     * 通过简历查询教师
+     * @param $data
+     * @return
+     */
+    public function getTeacherByResume()
+    {
+        $teacher_model = new TeacherModel();
+        return $teacher_model->getTeacherByResume($_GET['resume']);
+    }
+
+    /**
+     * 通过电话查询教师
+     * @param $data
+     * @return
+     */
+    public function getTeacherByPhone()
+    {
+        $teacher_model = new TeacherModel();
+        return $teacher_model->getTeacherByPhone($_GET['phone']);
+    }
+
+    /**
+     * 通过性别查询教师
+     * @param $data
+     * @return
+     */
+    public function getTeacherByGender()
+    {
+        $teacher_model = new TeacherModel();
+        return $teacher_model->getTeacherByGender($_GET['gender']);
+    }
+
+    /**
+     * 通过年龄查询教师
+     * @param $data
+     * @return
+     */
+    public function getTeacherByAge($age)
+    {
+        $teacher_model = new TeacherModel();
+        return $teacher_model->getTeacherByAge($_GET['age']);
+    }
+
+    /**
+     * 查询不大于指定年龄教师
+     * @param $data
+     * @return
+     */
+    public function getTeacherELTAge($age)
+    {
+        $teacher_model = new TeacherModel();
+        return $teacher_model->getTeacherELTAge($_GET['age']);
+    }
+
+    /**
+     * 查询不小于指定年龄教师
+     * @param $data
+     * @return
+     */
+    public function getTeacherEGTAge($age)
+    {
+        $teacher_model = new TeacherModel();
+        return $teacher_model->getTeacherEGTAge($_GET['age']);
+    }
+    /**
+     * 通过课程查询教师
+     * @param $data
+     * @return
+     */
+    public function getTeacherByCourse()
+    {
+        $cid = $_GET['cid'];
+        $teacher_model = new TeacherModel();
+        return $teacher_model->getTeacherByCourse($cid);
+    }
+
 }
