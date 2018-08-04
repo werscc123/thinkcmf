@@ -9,6 +9,7 @@
 namespace app\icr\controller;
 
 use app\icr\model\CourseModel;
+use app\icr\model\FeedbackModel;
 use cmf\controller\HomeBaseController;
 use think\Validate;
 
@@ -18,6 +19,13 @@ class CourseController extends HomebaseController{
     public function index(){
         $head_controller = new HeadController();
         $head_controller->setHeaderActive("course");
+        $course_model = new CourseModel();
+        $course = $course_model->getCourseByID(1);
+        $feedback_model = new FeedbackModel();
+        $feedback = $feedback_model->getFeedbackByID(1);
+        $this->assign('course', $course);
+        $this->assign('feedback', $feedback);
+        $this->assign('goal_array', explode("\n", $course['goal']));
         return $this->fetch(':course');
     }
 
@@ -84,6 +92,7 @@ class CourseController extends HomebaseController{
         $level = $_GET['level'];
         $type = $_GET['type'];
         $goal = $_GET['goal'];
+        $icon = $_GET['icon'];
         $teacher_id = $_GET['teacher_id'];
 
         $data = [
@@ -93,7 +102,8 @@ class CourseController extends HomebaseController{
             'level' => $level,
             'type' => $type,
             'goal' => $goal,
-            'teacher_id' => teacher_id,
+            'icon' => $icon,
+            'teacher_id' => $teacher_id,
         ];
 
         //验证
@@ -158,10 +168,10 @@ class CourseController extends HomebaseController{
     public function bookCourse(){
 
         $data = [
-            'cid' => $_GET['type'],
+            'cid' => 1,
             'phone' => $_GET['phone'],
-            'has_notified' => $_GET['has_notified'],
-            'time' => $_GET['time'],
+            'has_notified' => false,
+            'time' => date("Y-m-d H:i:s"),
         ];
 
         //验证
@@ -307,5 +317,29 @@ class CourseController extends HomebaseController{
         $phone = $_GET['phone'];
         $course_model = new CourseModel();
         return $course_model->getBooks($phone);
+    }
+
+    /**
+     * 查询指定日期之前的订单
+     * @param $data
+     * @return
+     */
+    public function getBooksBeforeTime()
+    {
+        $time = $_GET['time'];
+        $course_model = new CourseModel();
+        return $course_model->getBooksBeforeTime($time);
+    }
+
+    /**
+     * 查询指定日期之后的订单
+     * @param $data
+     * @return
+     */
+    public function getBooksAfterTime()
+    {
+        $time = $_GET['time'];
+        $course_model = new CourseModel();
+        return $course_model->getBooksAfterTime($time);
     }
 }

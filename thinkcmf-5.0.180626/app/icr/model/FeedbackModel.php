@@ -26,6 +26,8 @@ class FeedbackModel extends Model
             'uid' => $data['uid'],
             'cid' => $data['cid'],
             'type' => $data['type'],
+            'icon' => $data['icon'],
+            'title' => $data['title'],
         ];
         $feecback_existed = Db::name('icr_feedback')->where($feedback);
         if(!empty($feecback_existed)){
@@ -43,9 +45,10 @@ class FeedbackModel extends Model
     public function updateFeedback($data)
     {
         $fid =$data['id'];
-        if(empty(Db::name('icr_feedback')
+        $result = Db::name('icr_feedback')
             ->where('id',$fid)
-            ->find()))
+            ->find();
+        if(empty($result))
         {
             echo "不存在";
             return;
@@ -56,6 +59,8 @@ class FeedbackModel extends Model
                     'content' => $data['content'],
                     'uid' => $data['uid'],
                     'cid' => $data['cid'],
+                    'icon' => $data['icon'],
+                    'title' => $data['title'],
                     'type' => $data['type'],]
                     );
     }
@@ -67,9 +72,10 @@ class FeedbackModel extends Model
      */
     public function deleteFeedback($id)
     {
-        if(empty(Db::name('icr_feedback')
-            ->where('id',$id)
-            ->find()))
+        $result = Db::name('icr_feedback')
+            ->where('id',$fid)
+            ->find();
+        if(empty($result))
         {
             echo "不存在";
             return;

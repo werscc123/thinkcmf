@@ -20,16 +20,13 @@ class FeedbackController extends HomebaseController{
      */
     public function insertFeedback()
     {
-        $content = $_GET['content'];
-        $uid = $_GET['uid'];
-        $cid = $_GET['cid'];
-        $type = $_GET['type'];
-
         $data = [
-            'content' => $content,
-            'uid' => $uid,
-            'cid' => $cid,
-            'type' => $type,
+            'content' => $_GET['content'],
+            'uid' => $_GET['uid'],
+            'cid' => $_GET['cid'],
+            'type' => $_GET['type'],
+            'icon' => $_GET['icon'],
+            'title' => $_GET['title'],
         ];
 
         $feedback_model = new FeedbackModel();
@@ -43,18 +40,15 @@ class FeedbackController extends HomebaseController{
      */
     public function updateFeedback()
     {
-        $id = $_GET['id'];
-        $content = $_GET['content'];
-        $uid = $_GET['uid'];
-        $cid = $_GET['cid'];
-        $type = $_GET['type'];
 
         $data = [
-            'id' => $id,
-            'content' => $content,
-            'uid' => $uid,
-            'cid' => $cid,
-            'type' => $type,
+            'id' => $_GET['id'],
+            'content' => $_GET['content'],
+            'uid' => $_GET['uid'],
+            'cid' => $_GET['cid'],
+            'type' => $_GET['type'],
+            'icon' => $_GET['icon'],
+            'title' => $_GET['title'],
         ];
 
         $feedback_model = new FeedbackModel();

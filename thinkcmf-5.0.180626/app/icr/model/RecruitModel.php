@@ -44,9 +44,10 @@ class RecruitModel extends Model
     public function updateRecruit($data)
     {
         $rid =$data['id'];
-        if(empty(Db::name('icr_feedback')
+        $result = Db::name('icr_feedback')
             ->where('id',$rid)
-            ->find()))
+            ->find();
+        if(empty($result))
         {
             echo "不存在";
             return;
@@ -69,9 +70,10 @@ class RecruitModel extends Model
      */
     public function deleteRecruit($id)
     {
-        if(empty(Db::name('icr_recruit')
+        $result = Db::name('icr_recruit')
             ->where('id',$id)
-            ->find()))
+            ->find();
+        if(empty($result))
         {
             echo "不存在";
             return;

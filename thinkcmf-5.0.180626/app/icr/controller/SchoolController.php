@@ -117,6 +117,7 @@ class SchoolController extends HomebaseController{
         $id = $_GET['id'];
         $name = $_GET['name'];
         $desc = $_GET['desc'];
+        $icon = $_GET['icon'];
         $start_time = $_GET['start_time'];
         $end_time = $_GET['end_time'];
 
@@ -124,6 +125,7 @@ class SchoolController extends HomebaseController{
             'id' => $id,
             'name' => $name,
             'desc' => $desc,
+            'icon' => $icon,
             'start_time' => $start_time,
             'end_time' => $end_time,
         ];

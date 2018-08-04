@@ -73,9 +73,10 @@ class SchoolModel extends Model
     public function updateSchool($data)
     {
         $sid =$data['id'];
-        if(empty(Db::name('icr_school')
+        $result = Db::name('icr_school')
             ->where('id',$sid)
-            ->find()))
+            ->find();
+        if(empty($result))
         {
             echo "不存在";
             return;
@@ -97,9 +98,10 @@ class SchoolModel extends Model
     public function updateActivity($data)
     {
         $aid =$data['id'];
-        if(empty(Db::name('icr_activity')
+        $result = Db::name('icr_activity')
             ->where('id',$aid)
-            ->find()))
+            ->find();
+        if(empty($result))
         {
             echo "不存在";
             return;
@@ -110,6 +112,7 @@ class SchoolModel extends Model
                     'sid' => $data['sid'],
                     'name' => $data['name'],
                     'desc' => $data['desc'],
+                    'icon' => $data['icon'],
                     'start_time' => $data['start_time'],
                     'end_time' => $data['end_time'],
                 ]);
@@ -122,9 +125,10 @@ class SchoolModel extends Model
      */
     public function deleteSchool($id)
     {
-        if(empty(Db::name('icr_school')
+        $result = Db::name('icr_school')
             ->where('id',$id)
-            ->find()))
+            ->find();
+        if(empty($result))
         {
             echo "不存在";
             return;
@@ -139,9 +143,10 @@ class SchoolModel extends Model
      */
     public function deletePicture($id)
     {
-        if(empty(Db::name('icr_picture')
+        $result = Db::name('icr_picture')
             ->where('id',$id)
-            ->find()))
+            ->find();
+        if(empty($result))
         {
             echo "不存在";
             return;
@@ -156,9 +161,10 @@ class SchoolModel extends Model
      */
     public function deleteActivity($id)
     {
-        if(empty(Db::name('icr_activity')
+        $result = Db::name('icr_activity')
             ->where('id',$id)
-            ->find()))
+            ->find();
+        if(empty($result))
         {
             echo "不存在";
             return;

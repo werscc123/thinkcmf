@@ -45,9 +45,10 @@ class TeacherModel extends Model
     public function updateTeacher($data)
     {
         $tid =$data['id'];
-        if(empty(Db::name('icr_teacher')
+        $result = Db::name('icr_teacher')
             ->where('id',$tid)
-            ->find()))
+            ->find();
+        if(empty($result))
         {
             echo "不存在";
             return;
@@ -60,7 +61,8 @@ class TeacherModel extends Model
                     'resume' => $data['resume'],
                     'phone' => $data['phone'],
                     'gender' => $data['gender'],
-                    'age' => $data['age'],]
+                    'age' => $data['age'],
+                    'icon' => $data['icon'],]
             );
     }
 
@@ -71,9 +73,10 @@ class TeacherModel extends Model
      */
     public function deleteTeacher($id)
     {
-        if(empty(Db::name('icr_teacher')
+        $result = Db::name('icr_teacher')
             ->where('id',$id)
-            ->find()))
+            ->find();
+        if(empty($result))
         {
             echo "不存在";
             return;

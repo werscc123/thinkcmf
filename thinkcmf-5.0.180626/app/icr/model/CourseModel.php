@@ -98,7 +98,7 @@ class CourseModel extends Model
     public function bookCourse($data)
     {
         $book = [
-            'cid' => $data['type'],
+            'cid' => $data['cid'],
             'phone' => $data['phone'],
             'has_notified' => $data['has_notified'],
             'time' => $data['time'],
@@ -134,9 +134,10 @@ class CourseModel extends Model
     public function updateCourse($data)
     {
         $cid =$data['id'];
-        if(empty(Db::name('icr_course')
+        $result = Db::name('icr_course')
             ->where('id',$cid)
-            ->find()))
+            ->find();
+        if(empty($result))
         {
             echo "课程不存在";
             return;
@@ -146,9 +147,11 @@ class CourseModel extends Model
             ->update(['name' => $data['name'],
                     'describe' => $data['describe'],
                     'level' => $data['level'],
-                    'goal' => $data['goal']]
+                    'goal' => $data['goal'],
+                    'icon' => $data['icon']]
                     );
-        if(!empty(Db::name('icr_ctype_intersect')->where('id',$cid)->select()))
+        $result = Db::name('icr_ctype_intersect')->where('id',$cid)->select();
+        if(!empty($result))
             Db::name('icr_ctype_intersect')->where('id',$cid)->delete();
         //绑定课程类别
         $course_type = $data['type'];
@@ -207,9 +210,10 @@ class CourseModel extends Model
      */
     public function deleteCourse($id)
     {
-        if(empty(Db::name('icr_course')
+        $result = Db::name('icr_course')
             ->where('id',$id)
-            ->find()))
+            ->find();
+        if(empty($result))
         {
             echo "课程不存在";
             return;
@@ -308,5 +312,25 @@ class CourseModel extends Model
     public function getBooks($phone)
     {
         return Db::name('icr_book')->where('phone',$phone)->select();
+    }
+
+    /**
+     * 查询指定日期之前的订单
+     * @param $time
+     * @return
+     */
+    public function getBooksBeforeTime($time)
+    {
+        return Db::name('icr_book')->where('time','elt',$time)->select();
+    }
+
+    /**
+     * 查询指定日期之后的订单
+     * @param $time
+     * @return
+     */
+    public function getBooksAfterTime($time)
+    {
+        return Db::name('icr_book')->where('time','egt',$time)->select();
     }
 }

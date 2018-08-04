@@ -17,6 +17,11 @@ class TeacherController extends HomebaseController{
     public function index(){
         $head_controller = new HeadController();
         $head_controller->setHeaderActive("teacher");
+        $teacher_model = new TeacherModel();
+        $head_teacher = $teacher_model->getTeacherByID(1);
+        $teacher = $teacher_model->getTeacherByID(2);
+        $this->assign('head_teacher', $head_teacher);
+        $this->assign('teacher', $teacher);
         return $this->fetch(':teachers');
     }
 
@@ -55,6 +60,7 @@ class TeacherController extends HomebaseController{
             'phone' => $_GET['phone'],
             'gender' => $_GET['gender'],
             'age' => $_GET['age'],
+            'icon' => $_GET['icon'],
         ];
 
         $teacher_model = new TeacherModel();
