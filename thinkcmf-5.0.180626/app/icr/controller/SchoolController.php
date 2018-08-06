@@ -17,6 +17,14 @@ class SchoolController extends HomebaseController{
     public function index(){
         $head_controller = new HeadController();
         $head_controller->setHeaderActive("school");
+        $school_model = new SchoolModel();
+        $school = $school_model->getSchoolByID(1);
+        $school_picture_list = $school_model->getPictureListBySchoolID(1);
+        $school_picture = $this->transformPictureList($school_picture_list);
+        $school_activity = $school_model->getActivityBySchoolID(1);
+        $this->assign('school',$school);
+        $this->assign('school_picture',$school_picture);
+        $this->assign('school_activity',$school_activity);
         return $this->fetch(':school');
     }
 
@@ -297,6 +305,23 @@ class SchoolController extends HomebaseController{
     {
         $school_model = new SchoolModel();
         return $school_model->getActivityBeforeEndTime($_GET['end_time']);
+    }
+
+    /**
+     * 转换图片输出到html
+     * @param $picture_list
+     * @return
+     */
+    private function transformPictureList($picture_list)
+    {
+        $picture = "";
+        foreach ($picture_list as $item)
+        {
+            $picture .= "<div class=\"path-img\"><img  src=\"";
+            $picture .= $item['url'];
+            $picture .= "\"/></div>\n";
+        }
+        return $picture;
     }
 
 }

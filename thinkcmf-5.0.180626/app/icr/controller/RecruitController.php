@@ -17,6 +17,11 @@ class RecruitController extends HomebaseController{
     public function index(){
         $head_controller = new HeadController();
         $head_controller->setHeaderActive("recruit");
+        $recruit_model = new RecruitModel();
+        $recruit = $recruit_model->getRecruitByID(1);
+        $brief_intro = $this->getBriefIntro($recruit);
+        $this->assign('recruit', $recruit);
+        $this->assign('brief_intro', $brief_intro);
         return $this->fetch(':recruit');
     }
 
@@ -156,5 +161,21 @@ class RecruitController extends HomebaseController{
     {
         $recruit_model = new RecruitModel();
         return $recruit_model->getRecruitBeforeEndTime($_GET['end_time']);
+    }
+
+    /**
+     * 转换简介到html输出
+     * @param $recruit
+     * @return
+     */
+    private function getBriefIntro($recruit)
+    {
+        $intro_list = explode("\n",$recruit['desc']);
+        $brief_intro = "";
+        for ($x = 0; $x < 9; $x++) {
+            $brief_intro .= "<p>" . $intro_list[$x] . "</p>\n";
+        }
+        $brief_intro .= "<p>" . $intro_list[9] . "</p>\n";
+        return $brief_intro;
     }
 }

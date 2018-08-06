@@ -223,6 +223,26 @@ class SchoolModel extends Model
     }
 
     /**
+     * 通过Schoolid查询图片
+     * @param $data
+     * @return
+     */
+    public function getPictureBySchoolID($sid)
+    {
+        return Db::name('icr_picture')->where('sid',$sid)->find();
+    }
+
+    /**
+     * 通过Schoolid查询图片list
+     * @param $data
+     * @return
+     */
+    public function getPictureListBySchoolID($sid)
+    {
+        return Db::name('icr_picture')->where('sid',$sid)->select();
+    }
+
+    /**
      * 通过id查询活动
      * @param $data
      * @return
@@ -230,6 +250,16 @@ class SchoolModel extends Model
     public function getActivityByID($id)
     {
         return Db::name('icr_activity')->where('id',$id)->find();
+    }
+
+    /**
+     * 通过id查询活动
+     * @param $data
+     * @return
+     */
+    public function getActivityBySchoolID($sid)
+    {
+        return Db::name('icr_activity')->where('id',$sid)->select();
     }
 
     /**
