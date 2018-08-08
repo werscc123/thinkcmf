@@ -45,10 +45,10 @@ class PfopTest extends \PHPUnit_Framework_TestCase
     {
         global $testAuth;
         $bucket = 'phpsdk';
-        $key = 'php-logo.png';
+        $key = 'php-logo2.png';
         $pfop = new PersistentFop($testAuth, null);
 
-        $url1 = 'http://phpsdk.qiniudn.com/php-logo.png';
+        $url1 = 'http://phpsdk.qiniudn.com/php-logo2.png';
         $url2 = 'http://phpsdk.qiniudn.com/php-sdk.html';
         $zipKey = 'test.zip';
 

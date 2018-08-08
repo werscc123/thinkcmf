@@ -17,7 +17,7 @@ $pipeline = 'sdktest';
 $pfop = new PersistentFop($auth, null);
 
 // 进行zip压缩的url
-$url1 = 'http://phpsdk.qiniudn.com/php-logo.png';
+$url1 = 'http://phpsdk.qiniudn.com/php-logo2.png';
 $url2 = 'http://phpsdk.qiniudn.com/1.png';
 
 //压缩后的key

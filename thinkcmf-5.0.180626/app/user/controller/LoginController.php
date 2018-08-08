@@ -10,6 +10,7 @@
 // +----------------------------------------------------------------------
 namespace app\user\controller;
 
+use app\icr\controller\HeadController;
 use think\Validate;
 use cmf\controller\HomeBaseController;
 use app\user\model\UserModel;
@@ -22,6 +23,8 @@ class LoginController extends HomeBaseController
      */
     public function index()
     {
+        $head_controller = new HeadController();
+        $head_controller->setHeaderActive('home');
         $redirect = $this->request->post("redirect");
         if (empty($redirect)) {
             $redirect = $this->request->server('HTTP_REFERER');

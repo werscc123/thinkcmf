@@ -30,10 +30,10 @@ class PublicController extends AdminBaseController
             return redirect(cmf_get_root() . "/");
         }
 
-        $admin_id = session('ADMIN_ID');
-        if (!empty($admin_id)) {//已经登录
-            return redirect(url("admin/Index/index"));
-        } else {
+//        $admin_id = session('ADMIN_ID');
+//        if (!empty($admin_id)) {//已经登录
+//            return redirect(url("admin/Index/index"));
+//        } else {
             $site_admin_url_password = config("cmf_SITE_ADMIN_URL_PASSWORD");
             $upw                     = session("__CMF_UPW__");
             if (!empty($site_admin_url_password) && $upw != $site_admin_url_password) {
@@ -46,7 +46,7 @@ class PublicController extends AdminBaseController
                 }
                 return $this->fetch(":login");
             }
-        }
+//        }
     }
 
     /**

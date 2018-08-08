@@ -18,7 +18,7 @@ $policy = array(
 $uptoken = $auth->uploadToken($bucket, null, 3600, $policy);
 
 //上传文件的本地路径
-$filePath = './php-logo.png';
+$filePath = './php-logo2.png';
 
 $uploadMgr = new UploadManager();
 

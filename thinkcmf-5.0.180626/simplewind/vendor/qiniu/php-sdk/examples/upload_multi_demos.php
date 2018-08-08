@@ -26,8 +26,8 @@ if ($err !== null) {
 
 //----------------------------------------upload demo2 ----------------------------------------
 // 上传文件到七牛
-$filePath = './php-logo.png';
-$key = 'php-logo.png';
+$filePath = './php-logo2.png';
+$key = 'php-logo2.png';
 list($ret, $err) = $uploadMgr->putFile($token, $key, $filePath);
 echo "\n====> putFile result: \n";
 if ($err !== null) {

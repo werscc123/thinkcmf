@@ -15,7 +15,7 @@ class IndexController extends HomebaseController{
     // 首页
     public function index(){
         $head_controller = new HeadController();
-        $head_controller->setHeaderActive("home");
+        $head_controller->setHeaderActive('home');
         return $this->fetch(':home');
     }
     //提交预约

@@ -9,7 +9,7 @@ $secretKey = getenv('QINIU_SECRET_KEY');
 $testAuth = new Auth($accessKey, $secretKey);
 
 $bucketName = 'phpsdk';
-$key = 'php-logo.png';
+$key = 'php-logo2.png';
 $key2 = 'niu.jpg';
 
 $bucketNameBC = 'phpsdk-bc';
