@@ -79,12 +79,14 @@ class LoginController extends HomeBaseController
                 $user['user_login'] = $data['username'];
                 $log                = $userModel->doName($user);
             }
-            $session_login_http_referer = session('login_http_referer');
-            $redirect                   = empty($session_login_http_referer) ? $this->request->root() : $session_login_http_referer;
+//            $session_login_http_referer = session('login_http_referer');
+//            $redirect                   = empty($session_login_http_referer) ? $this->request->root() : $session_login_http_referer;
+            $redirect                   = "/icr/index/index";
             switch ($log) {
                 case 0:
                     cmf_user_action('login');
-                    $this->success(lang('LOGIN_SUCCESS'), $redirect);
+                    $this->redirect(url($redirect,array('login_user'=>$data['username'])));
+//                    $this->success(lang('LOGIN_SUCCESS'), url($redirect,array('login_user'=>$data['username'])));
                     break;
                 case 1:
                     $this->error(lang('PASSWORD_NOT_RIGHT'));

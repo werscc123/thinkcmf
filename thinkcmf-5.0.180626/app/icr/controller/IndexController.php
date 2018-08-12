@@ -16,6 +16,10 @@ class IndexController extends HomebaseController{
     public function index(){
         $head_controller = new HeadController();
         $head_controller->setHeaderActive('home');
+        $data = $this->request->param();
+        if (!empty($data["login_user"])) {
+            $head_controller->setLoginHtml($data["login_user"]);
+        }
         return $this->fetch(':home');
     }
     //提交预约

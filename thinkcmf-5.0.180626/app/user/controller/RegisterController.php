@@ -93,11 +93,13 @@ class RegisterController extends HomeBaseController
             } else {
                 $log = 2;
             }
-            $sessionLoginHttpReferer = session('login_http_referer');
-            $redirect                = empty($sessionLoginHttpReferer) ? cmf_get_root() . '/' : $sessionLoginHttpReferer;
+//            $sessionLoginHttpReferer = session('login_http_referer');
+//            $redirect                = empty($sessionLoginHttpReferer) ? cmf_get_root() . '/' : $sessionLoginHttpReferer;
+            $redirect                = "/";
             switch ($log) {
                 case 0:
-                    $this->success('注册成功', $redirect);
+                    $this->redirect(url($redirect,array('login_user'=>$data['username'])));
+//                    $this->success('注册成功', $redirect);
                     break;
                 case 1:
                     $this->error("您的账户已注册过");

@@ -22,6 +22,7 @@ class HeadController extends HomebaseController{
         $this->assign('recruit_active', "");
         $this->assign('join_active', "");
         $this->assign('about_active', "");
+        $this->setLoginHtml();
     }
 
     public function setHeaderActive($active_page){
@@ -58,6 +59,21 @@ class HeadController extends HomebaseController{
                 break;
         }
         return $this;
+    }
+
+    public function setLoginHtml($login_user = "")
+    {
+        $url =url('user/index/logout');
+        if($login_user == "") {
+            $login_html = "<a href=\"javascript:void(0)\" id=\"login\">登录</a>
+            |
+            <a href=\"javascript:void(0)\" id=\"register\">注册</a>";
+        } else {
+            $login_html = "<label>用户{$login_user}</label>
+            |
+            <a href=\"".$url."\" id=\"logout\">登出</a>";
+        }
+        $this->assign('login_html',$login_html);
     }
 
 }
