@@ -1,5 +1,5 @@
 ﻿# Host:   (Version: 5.5.53)
-# Date: 2018-08-06 21:36:45
+# Date: 2018-08-12 20:33:37
 # Generator: MySQL-Front 5.3  (Build 4.234)
 
 /*!40101 SET NAMES utf8 */;
@@ -26,13 +26,13 @@ CREATE TABLE `cmf_admin_menu` (
   KEY `status` (`status`),
   KEY `parent_id` (`parent_id`),
   KEY `controller` (`controller`)
-) ENGINE=InnoDB AUTO_INCREMENT=162 DEFAULT CHARSET=utf8mb4 COMMENT='后台菜单表';
+) ENGINE=InnoDB AUTO_INCREMENT=168 DEFAULT CHARSET=utf8mb4 COMMENT='后台菜单表';
 
 #
 # Data for table "cmf_admin_menu"
 #
 
-INSERT INTO `cmf_admin_menu` VALUES (1,0,0,1,20,'admin','Plugin','default','','插件中心','cloud','插件中心'),(2,1,1,1,10000,'admin','Hook','index','','钩子管理','','钩子管理'),(3,2,1,0,10000,'admin','Hook','plugins','','钩子插件管理','','钩子插件管理'),(4,2,2,0,10000,'admin','Hook','pluginListOrder','','钩子插件排序','','钩子插件排序'),(5,2,1,0,10000,'admin','Hook','sync','','同步钩子','','同步钩子'),(6,0,0,1,0,'admin','Setting','default','','设置','cogs','系统设置入口'),(7,6,1,1,50,'admin','Link','index','','友情链接','','友情链接管理'),(8,7,1,0,10000,'admin','Link','add','','添加友情链接','','添加友情链接'),(9,7,2,0,10000,'admin','Link','addPost','','添加友情链接提交保存','','添加友情链接提交保存'),(10,7,1,0,10000,'admin','Link','edit','','编辑友情链接','','编辑友情链接'),(11,7,2,0,10000,'admin','Link','editPost','','编辑友情链接提交保存','','编辑友情链接提交保存'),(12,7,2,0,10000,'admin','Link','delete','','删除友情链接','','删除友情链接'),(13,7,2,0,10000,'admin','Link','listOrder','','友情链接排序','','友情链接排序'),(14,7,2,0,10000,'admin','Link','toggle','','友情链接显示隐藏','','友情链接显示隐藏'),(15,6,1,1,10,'admin','Mailer','index','','邮箱配置','','邮箱配置'),(16,15,2,0,10000,'admin','Mailer','indexPost','','邮箱配置提交保存','','邮箱配置提交保存'),(17,15,1,0,10000,'admin','Mailer','template','','邮件模板','','邮件模板'),(18,15,2,0,10000,'admin','Mailer','templatePost','','邮件模板提交','','邮件模板提交'),(19,15,1,0,10000,'admin','Mailer','test','','邮件发送测试','','邮件发送测试'),(20,6,1,0,10000,'admin','Menu','index','','后台菜单','','后台菜单管理'),(21,20,1,0,10000,'admin','Menu','lists','','所有菜单','','后台所有菜单列表'),(22,20,1,0,10000,'admin','Menu','add','','后台菜单添加','','后台菜单添加'),(23,20,2,0,10000,'admin','Menu','addPost','','后台菜单添加提交保存','','后台菜单添加提交保存'),(24,20,1,0,10000,'admin','Menu','edit','','后台菜单编辑','','后台菜单编辑'),(25,20,2,0,10000,'admin','Menu','editPost','','后台菜单编辑提交保存','','后台菜单编辑提交保存'),(26,20,2,0,10000,'admin','Menu','delete','','后台菜单删除','','后台菜单删除'),(27,20,2,0,10000,'admin','Menu','listOrder','','后台菜单排序','','后台菜单排序'),(28,20,1,0,10000,'admin','Menu','getActions','','导入新后台菜单','','导入新后台菜单'),(29,6,1,1,30,'admin','Nav','index','','导航管理','','导航管理'),(30,29,1,0,10000,'admin','Nav','add','','添加导航','','添加导航'),(31,29,2,0,10000,'admin','Nav','addPost','','添加导航提交保存','','添加导航提交保存'),(32,29,1,0,10000,'admin','Nav','edit','','编辑导航','','编辑导航'),(33,29,2,0,10000,'admin','Nav','editPost','','编辑导航提交保存','','编辑导航提交保存'),(34,29,2,0,10000,'admin','Nav','delete','','删除导航','','删除导航'),(35,29,1,0,10000,'admin','NavMenu','index','','导航菜单','','导航菜单'),(36,35,1,0,10000,'admin','NavMenu','add','','添加导航菜单','','添加导航菜单'),(37,35,2,0,10000,'admin','NavMenu','addPost','','添加导航菜单提交保存','','添加导航菜单提交保存'),(38,35,1,0,10000,'admin','NavMenu','edit','','编辑导航菜单','','编辑导航菜单'),(39,35,2,0,10000,'admin','NavMenu','editPost','','编辑导航菜单提交保存','','编辑导航菜单提交保存'),(40,35,2,0,10000,'admin','NavMenu','delete','','删除导航菜单','','删除导航菜单'),(41,35,2,0,10000,'admin','NavMenu','listOrder','','导航菜单排序','','导航菜单排序'),(42,1,1,1,10000,'admin','Plugin','index','','插件列表','','插件列表'),(43,42,2,0,10000,'admin','Plugin','toggle','','插件启用禁用','','插件启用禁用'),(44,42,1,0,10000,'admin','Plugin','setting','','插件设置','','插件设置'),(45,42,2,0,10000,'admin','Plugin','settingPost','','插件设置提交','','插件设置提交'),(46,42,2,0,10000,'admin','Plugin','install','','插件安装','','插件安装'),(47,42,2,0,10000,'admin','Plugin','update','','插件更新','','插件更新'),(48,42,2,0,10000,'admin','Plugin','uninstall','','卸载插件','','卸载插件'),(49,109,0,1,10000,'admin','User','default','','管理组','','管理组'),(50,49,1,1,10000,'admin','Rbac','index','','角色管理','','角色管理'),(51,50,1,0,10000,'admin','Rbac','roleAdd','','添加角色','','添加角色'),(52,50,2,0,10000,'admin','Rbac','roleAddPost','','添加角色提交','','添加角色提交'),(53,50,1,0,10000,'admin','Rbac','roleEdit','','编辑角色','','编辑角色'),(54,50,2,0,10000,'admin','Rbac','roleEditPost','','编辑角色提交','','编辑角色提交'),(55,50,2,0,10000,'admin','Rbac','roleDelete','','删除角色','','删除角色'),(56,50,1,0,10000,'admin','Rbac','authorize','','设置角色权限','','设置角色权限'),(57,50,2,0,10000,'admin','Rbac','authorizePost','','角色授权提交','','角色授权提交'),(58,0,1,0,10000,'admin','RecycleBin','index','','回收站','','回收站'),(59,58,2,0,10000,'admin','RecycleBin','restore','','回收站还原','','回收站还原'),(60,58,2,0,10000,'admin','RecycleBin','delete','','回收站彻底删除','','回收站彻底删除'),(61,6,1,1,10000,'admin','Route','index','','URL美化','','URL规则管理'),(62,61,1,0,10000,'admin','Route','add','','添加路由规则','','添加路由规则'),(63,61,2,0,10000,'admin','Route','addPost','','添加路由规则提交','','添加路由规则提交'),(64,61,1,0,10000,'admin','Route','edit','','路由规则编辑','','路由规则编辑'),(65,61,2,0,10000,'admin','Route','editPost','','路由规则编辑提交','','路由规则编辑提交'),(66,61,2,0,10000,'admin','Route','delete','','路由规则删除','','路由规则删除'),(67,61,2,0,10000,'admin','Route','ban','','路由规则禁用','','路由规则禁用'),(68,61,2,0,10000,'admin','Route','open','','路由规则启用','','路由规则启用'),(69,61,2,0,10000,'admin','Route','listOrder','','路由规则排序','','路由规则排序'),(70,61,1,0,10000,'admin','Route','select','','选择URL','','选择URL'),(71,6,1,1,0,'admin','Setting','site','','网站信息','','网站信息'),(72,71,2,0,10000,'admin','Setting','sitePost','','网站信息设置提交','','网站信息设置提交'),(73,6,1,0,10000,'admin','Setting','password','','密码修改','','密码修改'),(74,73,2,0,10000,'admin','Setting','passwordPost','','密码修改提交','','密码修改提交'),(75,6,1,1,10000,'admin','Setting','upload','','上传设置','','上传设置'),(76,75,2,0,10000,'admin','Setting','uploadPost','','上传设置提交','','上传设置提交'),(77,6,1,0,10000,'admin','Setting','clearCache','','清除缓存','','清除缓存'),(78,6,1,1,40,'admin','Slide','index','','幻灯片管理','','幻灯片管理'),(79,78,1,0,10000,'admin','Slide','add','','添加幻灯片','','添加幻灯片'),(80,78,2,0,10000,'admin','Slide','addPost','','添加幻灯片提交','','添加幻灯片提交'),(81,78,1,0,10000,'admin','Slide','edit','','编辑幻灯片','','编辑幻灯片'),(82,78,2,0,10000,'admin','Slide','editPost','','编辑幻灯片提交','','编辑幻灯片提交'),(83,78,2,0,10000,'admin','Slide','delete','','删除幻灯片','','删除幻灯片'),(84,78,1,0,10000,'admin','SlideItem','index','','幻灯片页面列表','','幻灯片页面列表'),(85,84,1,0,10000,'admin','SlideItem','add','','幻灯片页面添加','','幻灯片页面添加'),(86,84,2,0,10000,'admin','SlideItem','addPost','','幻灯片页面添加提交','','幻灯片页面添加提交'),(87,84,1,0,10000,'admin','SlideItem','edit','','幻灯片页面编辑','','幻灯片页面编辑'),(88,84,2,0,10000,'admin','SlideItem','editPost','','幻灯片页面编辑提交','','幻灯片页面编辑提交'),(89,84,2,0,10000,'admin','SlideItem','delete','','幻灯片页面删除','','幻灯片页面删除'),(90,84,2,0,10000,'admin','SlideItem','ban','','幻灯片页面隐藏','','幻灯片页面隐藏'),(91,84,2,0,10000,'admin','SlideItem','cancelBan','','幻灯片页面显示','','幻灯片页面显示'),(92,84,2,0,10000,'admin','SlideItem','listOrder','','幻灯片页面排序','','幻灯片页面排序'),(93,6,1,1,10000,'admin','Storage','index','','文件存储','','文件存储'),(94,93,2,0,10000,'admin','Storage','settingPost','','文件存储设置提交','','文件存储设置提交'),(95,6,1,1,20,'admin','Theme','index','','模板管理','','模板管理'),(96,95,1,0,10000,'admin','Theme','install','','安装模板','','安装模板'),(97,95,2,0,10000,'admin','Theme','uninstall','','卸载模板','','卸载模板'),(98,95,2,0,10000,'admin','Theme','installTheme','','模板安装','','模板安装'),(99,95,2,0,10000,'admin','Theme','update','','模板更新','','模板更新'),(100,95,2,0,10000,'admin','Theme','active','','启用模板','','启用模板'),(101,95,1,0,10000,'admin','Theme','files','','模板文件列表','','启用模板'),(102,95,1,0,10000,'admin','Theme','fileSetting','','模板文件设置','','模板文件设置'),(103,95,1,0,10000,'admin','Theme','fileArrayData','','模板文件数组数据列表','','模板文件数组数据列表'),(104,95,2,0,10000,'admin','Theme','fileArrayDataEdit','','模板文件数组数据添加编辑','','模板文件数组数据添加编辑'),(105,95,2,0,10000,'admin','Theme','fileArrayDataEditPost','','模板文件数组数据添加编辑提交保存','','模板文件数组数据添加编辑提交保存'),(106,95,2,0,10000,'admin','Theme','fileArrayDataDelete','','模板文件数组数据删除','','模板文件数组数据删除'),(107,95,2,0,10000,'admin','Theme','settingPost','','模板文件编辑提交保存','','模板文件编辑提交保存'),(108,95,1,0,10000,'admin','Theme','dataSource','','模板文件设置数据源','','模板文件设置数据源'),(109,0,0,1,10,'user','AdminIndex','default','','用户管理','group','用户管理'),(110,49,1,1,10000,'admin','User','index','','管理员','','管理员管理'),(111,110,1,0,10000,'admin','User','add','','管理员添加','','管理员添加'),(112,110,2,0,10000,'admin','User','addPost','','管理员添加提交','','管理员添加提交'),(113,110,1,0,10000,'admin','User','edit','','管理员编辑','','管理员编辑'),(114,110,2,0,10000,'admin','User','editPost','','管理员编辑提交','','管理员编辑提交'),(115,110,1,0,10000,'admin','User','userInfo','','个人信息','','管理员个人信息修改'),(116,110,2,0,10000,'admin','User','userInfoPost','','管理员个人信息修改提交','','管理员个人信息修改提交'),(117,110,2,0,10000,'admin','User','delete','','管理员删除','','管理员删除'),(118,110,2,0,10000,'admin','User','ban','','停用管理员','','停用管理员'),(119,110,2,0,10000,'admin','User','cancelBan','','启用管理员','','启用管理员'),(120,0,0,1,30,'portal','AdminIndex','default','','门户管理','th','门户管理'),(121,120,1,1,10000,'portal','AdminArticle','index','','文章管理','','文章列表'),(122,121,1,0,10000,'portal','AdminArticle','add','','添加文章','','添加文章'),(123,121,2,0,10000,'portal','AdminArticle','addPost','','添加文章提交','','添加文章提交'),(124,121,1,0,10000,'portal','AdminArticle','edit','','编辑文章','','编辑文章'),(125,121,2,0,10000,'portal','AdminArticle','editPost','','编辑文章提交','','编辑文章提交'),(126,121,2,0,10000,'portal','AdminArticle','delete','','文章删除','','文章删除'),(127,121,2,0,10000,'portal','AdminArticle','publish','','文章发布','','文章发布'),(128,121,2,0,10000,'portal','AdminArticle','top','','文章置顶','','文章置顶'),(129,121,2,0,10000,'portal','AdminArticle','recommend','','文章推荐','','文章推荐'),(130,121,2,0,10000,'portal','AdminArticle','listOrder','','文章排序','','文章排序'),(131,120,1,1,10000,'portal','AdminCategory','index','','分类管理','','文章分类列表'),(132,131,1,0,10000,'portal','AdminCategory','add','','添加文章分类','','添加文章分类'),(133,131,2,0,10000,'portal','AdminCategory','addPost','','添加文章分类提交','','添加文章分类提交'),(134,131,1,0,10000,'portal','AdminCategory','edit','','编辑文章分类','','编辑文章分类'),(135,131,2,0,10000,'portal','AdminCategory','editPost','','编辑文章分类提交','','编辑文章分类提交'),(136,131,1,0,10000,'portal','AdminCategory','select','','文章分类选择对话框','','文章分类选择对话框'),(137,131,2,0,10000,'portal','AdminCategory','listOrder','','文章分类排序','','文章分类排序'),(138,131,2,0,10000,'portal','AdminCategory','delete','','删除文章分类','','删除文章分类'),(139,120,1,1,10000,'portal','AdminPage','index','','页面管理','','页面管理'),(140,139,1,0,10000,'portal','AdminPage','add','','添加页面','','添加页面'),(141,139,2,0,10000,'portal','AdminPage','addPost','','添加页面提交','','添加页面提交'),(142,139,1,0,10000,'portal','AdminPage','edit','','编辑页面','','编辑页面'),(143,139,2,0,10000,'portal','AdminPage','editPost','','编辑页面提交','','编辑页面提交'),(144,139,2,0,10000,'portal','AdminPage','delete','','删除页面','','删除页面'),(145,120,1,1,10000,'portal','AdminTag','index','','文章标签','','文章标签'),(146,145,1,0,10000,'portal','AdminTag','add','','添加文章标签','','添加文章标签'),(147,145,2,0,10000,'portal','AdminTag','addPost','','添加文章标签提交','','添加文章标签提交'),(148,145,2,0,10000,'portal','AdminTag','upStatus','','更新标签状态','','更新标签状态'),(149,145,2,0,10000,'portal','AdminTag','delete','','删除文章标签','','删除文章标签'),(150,0,1,0,10000,'user','AdminAsset','index','','资源管理','file','资源管理列表'),(151,150,2,0,10000,'user','AdminAsset','delete','','删除文件','','删除文件'),(152,109,0,1,10000,'user','AdminIndex','default1','','用户组','','用户组'),(153,152,1,1,10000,'user','AdminIndex','index','','本站用户','','本站用户'),(154,153,2,0,10000,'user','AdminIndex','ban','','本站用户拉黑','','本站用户拉黑'),(155,153,2,0,10000,'user','AdminIndex','cancelBan','','本站用户启用','','本站用户启用'),(156,152,1,1,10000,'user','AdminOauth','index','','第三方用户','','第三方用户'),(157,156,2,0,10000,'user','AdminOauth','delete','','删除第三方用户绑定','','删除第三方用户绑定'),(158,6,1,1,10000,'user','AdminUserAction','index','','用户操作管理','','用户操作管理'),(159,158,1,0,10000,'user','AdminUserAction','edit','','编辑用户操作','','编辑用户操作'),(160,158,2,0,10000,'user','AdminUserAction','editPost','','编辑用户操作提交','','编辑用户操作提交'),(161,158,1,0,10000,'user','AdminUserAction','sync','','同步用户操作','','同步用户操作');
+INSERT INTO `cmf_admin_menu` VALUES (6,0,0,1,0,'admin','Setting','default','','设置','cogs','系统设置入口'),(49,109,0,1,10000,'admin','User','default','','管理组','','管理组'),(50,49,1,1,10000,'admin','Rbac','index','','角色管理','','角色管理'),(51,50,1,0,10000,'admin','Rbac','roleAdd','','添加角色','','添加角色'),(52,50,2,0,10000,'admin','Rbac','roleAddPost','','添加角色提交','','添加角色提交'),(53,50,1,0,10000,'admin','Rbac','roleEdit','','编辑角色','','编辑角色'),(54,50,2,0,10000,'admin','Rbac','roleEditPost','','编辑角色提交','','编辑角色提交'),(55,50,2,0,10000,'admin','Rbac','roleDelete','','删除角色','','删除角色'),(56,50,1,0,10000,'admin','Rbac','authorize','','设置角色权限','','设置角色权限'),(57,50,2,0,10000,'admin','Rbac','authorizePost','','角色授权提交','','角色授权提交'),(58,0,1,0,10000,'admin','RecycleBin','index','','回收站','','回收站'),(59,58,2,0,10000,'admin','RecycleBin','restore','','回收站还原','','回收站还原'),(60,58,2,0,10000,'admin','RecycleBin','delete','','回收站彻底删除','','回收站彻底删除'),(73,6,1,0,10000,'admin','Setting','password','','密码修改','','密码修改'),(74,73,2,0,10000,'admin','Setting','passwordPost','','密码修改提交','','密码修改提交'),(77,6,1,0,10000,'admin','Setting','clearCache','','清除缓存','','清除缓存'),(109,0,0,1,10,'user','AdminIndex','default','','用户管理','group','用户管理'),(110,49,1,1,10000,'admin','User','index','','管理员','','管理员管理'),(111,110,1,0,10000,'admin','User','add','','管理员添加','','管理员添加'),(112,110,2,0,10000,'admin','User','addPost','','管理员添加提交','','管理员添加提交'),(113,110,1,0,10000,'admin','User','edit','','管理员编辑','','管理员编辑'),(114,110,2,0,10000,'admin','User','editPost','','管理员编辑提交','','管理员编辑提交'),(115,110,1,0,10000,'admin','User','userInfo','','个人信息','','管理员个人信息修改'),(116,110,2,0,10000,'admin','User','userInfoPost','','管理员个人信息修改提交','','管理员个人信息修改提交'),(117,110,2,0,10000,'admin','User','delete','','管理员删除','','管理员删除'),(118,110,2,0,10000,'admin','User','ban','','停用管理员','','停用管理员'),(119,110,2,0,10000,'admin','User','cancelBan','','启用管理员','','启用管理员'),(152,109,0,1,10000,'user','AdminIndex','default1','','用户组','','用户组'),(153,152,1,1,10000,'user','AdminIndex','index','','本站用户','','本站用户'),(154,153,2,0,10000,'user','AdminIndex','ban','','本站用户拉黑','','本站用户拉黑'),(155,153,2,0,10000,'user','AdminIndex','cancelBan','','本站用户启用','','本站用户启用'),(156,152,1,1,10000,'user','AdminOauth','index','','第三方用户','','第三方用户'),(157,156,2,0,10000,'user','AdminOauth','delete','','删除第三方用户绑定','','删除第三方用户绑定'),(162,6,0,1,10000,'admin','Course','index','','课程管理','','课程管理'),(163,6,0,1,10000,'admin','Feedback','index','','反馈管理','','反馈管理'),(164,6,0,1,10000,'admin','Teacher','index','','教师管理','','教师管理'),(165,6,0,1,10000,'admin','Book','index','','预定管理','','预定管理'),(166,6,0,1,10000,'admin','School','index','','校区管理','','校区管理'),(167,6,0,1,10000,'admin','Recruit','index','','招聘管理','','招聘管理');
 
 #
 # Structure for table "cmf_asset"
@@ -191,21 +191,21 @@ CREATE TABLE `cmf_hook_plugin` (
 
 DROP TABLE IF EXISTS `cmf_icr_activity`;
 CREATE TABLE `cmf_icr_activity` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `sid` int(11) NOT NULL DEFAULT '0' COMMENT '校区id',
   `name` varchar(255) DEFAULT NULL COMMENT '活动名',
   `desc` varchar(255) DEFAULT NULL COMMENT '活动描述',
   `icon` varchar(255) DEFAULT NULL,
   `start_time` datetime DEFAULT NULL COMMENT '开始时间',
   `end_time` datetime DEFAULT NULL COMMENT '结束时间',
-  PRIMARY KEY (`Id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COMMENT='文化活动';
 
 #
 # Data for table "cmf_icr_activity"
 #
 
-INSERT INTO `cmf_icr_activity` VALUES (1,1,'广州盛大开幕活动',NULL,'/themes/RY/icr/imgs/gerad-copy.jpg',NULL,NULL);
+INSERT INTO `cmf_icr_activity` VALUES (1,1,'广州盛大开幕活动',NULL,'/themes/RY/icr/imgs/gerad-copy.jpg',NULL,NULL),(2,1,'测试2','','http://gongyi.sinaimg.cn/greenlife/2013-06-06/U4021P650T3D43258F159DT20130606142318.jpg','0000-00-00 00:00:00','0000-00-00 00:00:00');
 
 #
 # Structure for table "cmf_icr_book"
@@ -213,21 +213,21 @@ INSERT INTO `cmf_icr_activity` VALUES (1,1,'广州盛大开幕活动',NULL,'/the
 
 DROP TABLE IF EXISTS `cmf_icr_book`;
 CREATE TABLE `cmf_icr_book` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `phone` varchar(11) NOT NULL DEFAULT '0',
   `cid` int(11) DEFAULT '0' COMMENT '课程ID',
-  `has_notified` bit(1) NOT NULL DEFAULT b'0',
+  `has_notified` tinyint(1) NOT NULL DEFAULT '0',
   `time` datetime DEFAULT NULL,
   `level` int(11) DEFAULT NULL COMMENT '课程级别',
   `sid` int(11) DEFAULT NULL COMMENT '校区id',
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COMMENT='预约课程';
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COMMENT='预约课程';
 
 #
 # Data for table "cmf_icr_book"
 #
 
-INSERT INTO `cmf_icr_book` VALUES (1,'2147483647',1,b'0','2018-08-04 23:47:11',NULL,NULL),(2,'12312341234',1,b'0','2018-08-04 23:49:11',NULL,NULL),(3,'12312341234',1,b'0','2018-08-04 23:49:15',NULL,NULL),(4,'12312341234',1,b'0','2018-08-04 23:52:25',NULL,NULL),(5,'88888888888',1,b'0','2018-08-04 23:52:35',NULL,NULL),(6,'12341234123',1,b'0','2018-08-06 19:53:12',NULL,NULL);
+INSERT INTO `cmf_icr_book` VALUES (1,'2147483647',1,0,'2018-08-04 23:47:11',NULL,NULL),(2,'12312341234',1,1,'2018-08-04 23:49:11',NULL,NULL),(4,'12312341234',1,0,'2018-08-04 23:52:25',NULL,NULL),(5,'88888888888',1,0,'2018-08-04 23:52:35',NULL,NULL),(6,'12341234123',1,0,'2018-08-06 19:53:12',NULL,NULL),(7,'22222222222',2,1,'2018-08-12 16:57:11',NULL,NULL);
 
 #
 # Structure for table "cmf_icr_course"
@@ -235,20 +235,20 @@ INSERT INTO `cmf_icr_book` VALUES (1,'2147483647',1,b'0','2018-08-04 23:47:11',N
 
 DROP TABLE IF EXISTS `cmf_icr_course`;
 CREATE TABLE `cmf_icr_course` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL DEFAULT '待定' COMMENT '课程名',
   `describe` varchar(255) DEFAULT NULL COMMENT '课程描述',
-  `level` int(11) DEFAULT NULL COMMENT '课程等级',
+  `level` int(11) NOT NULL DEFAULT '1' COMMENT '课程等级',
   `goal` varchar(255) DEFAULT NULL COMMENT '课程目标',
   `icon` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COMMENT='课程表';
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COMMENT='课程表';
 
 #
 # Data for table "cmf_icr_course"
 #
 
-INSERT INTO `cmf_icr_course` VALUES (1,'戏曲表演','test2',1,'运用简单词汇表达简单语句\r\n参与故事演讲\r\n运用特定教学资源扩充词汇量\r\n理解单词首音的概念\r\n让孩子能集中注意力5分钟或更久\r\n熟悉教学环境','/themes/RY/icr/imgs/gerad-copy.jpg'),(2,'test3','test3',1,'test3',NULL),(24,'test3','test3',1,'test3',NULL);
+INSERT INTO `cmf_icr_course` VALUES (2,'test3','test3',1,'test3','/themes/RY/icr/imgs/gerad-copy.jpg'),(24,'test3','test3',1,'test3','/themes/RY/icr/imgs/gerad-copy.jpg'),(29,'词汇积累','测试用',1,'运用简单词汇表达简单词汇\r\n参与故事演讲\r\n运用特定教学资源扩充词汇量\r\n理解单词首音的概念\r\n让孩子能集中注意力5分钟或更久\r\n熟悉教学环境','/themes/RY/icr/imgs/gerad-copy.jpg'),(31,'口语交流','测试用',3,'','https://upload-images.jianshu.io/upload_images/274895-19c367a90169bb02.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700'),(32,'真人口语','测试用',5,'test','');
 
 #
 # Structure for table "cmf_icr_cteacher_intersect"
@@ -256,16 +256,17 @@ INSERT INTO `cmf_icr_course` VALUES (1,'戏曲表演','test2',1,'运用简单词
 
 DROP TABLE IF EXISTS `cmf_icr_cteacher_intersect`;
 CREATE TABLE `cmf_icr_cteacher_intersect` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `cid` int(11) NOT NULL DEFAULT '0' COMMENT '课程id',
   `tid` int(11) NOT NULL DEFAULT '0' COMMENT '教师id',
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='课程教师交叉表';
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COMMENT='课程教师交叉表';
 
 #
 # Data for table "cmf_icr_cteacher_intersect"
 #
 
+INSERT INTO `cmf_icr_cteacher_intersect` VALUES (3,24,4),(26,24,1),(27,2,1);
 
 #
 # Structure for table "cmf_icr_ctype"
@@ -273,10 +274,10 @@ CREATE TABLE `cmf_icr_cteacher_intersect` (
 
 DROP TABLE IF EXISTS `cmf_icr_ctype`;
 CREATE TABLE `cmf_icr_ctype` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(255) DEFAULT NULL COMMENT '课程类别',
   `content` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`Id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT='课程类型';
 
 #
@@ -291,10 +292,10 @@ INSERT INTO `cmf_icr_ctype` VALUES (1,'口语','口语'),(2,'写作','写作');
 
 DROP TABLE IF EXISTS `cmf_icr_ctype_intersect`;
 CREATE TABLE `cmf_icr_ctype_intersect` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `cid` int(11) NOT NULL DEFAULT '0' COMMENT '课程id',
   `tid` int(11) NOT NULL DEFAULT '0' COMMENT '课程类别id',
-  PRIMARY KEY (`Id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='课程类型交叉表';
 
 #
@@ -308,8 +309,10 @@ CREATE TABLE `cmf_icr_ctype_intersect` (
 
 DROP TABLE IF EXISTS `cmf_icr_cu_intersect`;
 CREATE TABLE `cmf_icr_cu_intersect` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`Id`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cid` int(11) NOT NULL DEFAULT '1',
+  `uid` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='学生课程交叉表';
 
 #
@@ -323,21 +326,21 @@ CREATE TABLE `cmf_icr_cu_intersect` (
 
 DROP TABLE IF EXISTS `cmf_icr_feedback`;
 CREATE TABLE `cmf_icr_feedback` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `content` varchar(255) DEFAULT NULL COMMENT '文字/视频url',
   `uid` int(11) NOT NULL DEFAULT '0' COMMENT '用户ID',
   `cid` int(11) NOT NULL DEFAULT '0' COMMENT '课程ID',
   `type` tinyint(1) NOT NULL DEFAULT '0' COMMENT '类型：文字/视频',
   `icon` varchar(255) DEFAULT NULL COMMENT '反馈封面',
   `title` varchar(255) DEFAULT NULL COMMENT '反馈标题',
-  PRIMARY KEY (`Id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COMMENT='课程反馈表';
 
 #
 # Data for table "cmf_icr_feedback"
 #
 
-INSERT INTO `cmf_icr_feedback` VALUES (1,'<p>有特色，较专业</p>\r\n                                <p>有自己的教学理念</p>\r\n                                <p>能在日常生活中自然地表达</p>\r\n                                <p>基础的词，句</p>',1,1,0,'/themes/RY/icr/imgs/gerad-copy.jpg','Amy 小朋友家长的评语');
+INSERT INTO `cmf_icr_feedback` VALUES (1,'有特色，较专业\r\n有自己的教学理念\r\n能在日常生活中自然地表达\r\n基础的词，句',1,1,1,'/themes/RY/icr/imgs/gerad-copy.jpg','Amy 小朋友家长的评语'),(2,'失望，不满意',2,1,1,'/themes/RY/icr/imgs/gerad-copy.jpg','Course2的评语'),(3,'https://gslb.miaopai.com/stream/8QFqmRUVEZJw5Tlawc~7yTDzrpZLD9cBS6ntWA__.mp4?ssig=5928e7147806b18e3ebf38652ed75f71&time_stamp=1533988995902&cookie_id=&vend=1&os=3&partner=1&platform=2&cookie_id=&refer=miaopai&scid=8QFqmRUVEZJw5Tlawc%7E7yTDzrpZLD9cBS6ntWA_',1,1,2,'/themes/RY/icr/imgs/gerad-copy.jpg','视频测试'),(4,'测试3',1,2,1,'测试','测试2');
 
 #
 # Structure for table "cmf_icr_picture"
@@ -345,10 +348,10 @@ INSERT INTO `cmf_icr_feedback` VALUES (1,'<p>有特色，较专业</p>\r\n      
 
 DROP TABLE IF EXISTS `cmf_icr_picture`;
 CREATE TABLE `cmf_icr_picture` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `sid` int(11) NOT NULL DEFAULT '0',
   `url` varchar(255) DEFAULT NULL COMMENT '图片地址',
-  PRIMARY KEY (`Id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COMMENT='校区图片';
 
 #
@@ -363,20 +366,39 @@ INSERT INTO `cmf_icr_picture` VALUES (1,1,'/themes/RY/icr/imgs/icr-us-1.png'),(2
 
 DROP TABLE IF EXISTS `cmf_icr_recruit`;
 CREATE TABLE `cmf_icr_recruit` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `position` varchar(255) DEFAULT NULL COMMENT '招聘职位',
   `desc` varchar(255) DEFAULT NULL COMMENT '职位描述',
   `require` varchar(255) DEFAULT NULL COMMENT '任职要求',
   `start_time` datetime DEFAULT NULL COMMENT '开始时间',
   `end_time` varchar(255) DEFAULT NULL COMMENT '结束时间',
-  PRIMARY KEY (`Id`)
+  `type` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COMMENT='招聘';
 
 #
 # Data for table "cmf_icr_recruit"
 #
 
-INSERT INTO `cmf_icr_recruit` VALUES (1,'教师（阅读专员教师）','教授I Can Read 读写课程\r\n •\t教授2.5-12岁儿童。\r\n •\t运用I Can Read?学习模式教授预读技巧。\r\n •\t运用I Can Read?学习模式教授阅读理解技巧。\r\n •\t教授写作技巧，包括语法、包括语法，改错和写作类型。\r\n •\t教授口语表达和沟通技巧。\r\n •\t帮助学生提升社交能力，并养成良好的课堂习惯。\r\n 评估测验\r\n •\t为入学新生展开入学评估测验。\r\n •\t定期对学生课堂表现进行评估以掌握学生学习状况。\r\n 交流沟通\r\n •\t定期通过非正式会议、正式会议及家长会与学生','•\t监督学习中心的行政事务、日常运行及管理工作。\r\n•\t负责学习中心整体盈利状况及利润增长。\r\n•\t以良好的商业意识正确制定决策。\r\n•\t合理安排人手分配。\r\n•\t为学生和家长创造舒适的学习环境。\r\n•\t维护干净和良好的学习环境。\r\n•\t关心学生，确保学生安全。\r\n•\t编排课程及日程\r\n•\t听取、回复及管理客户的咨询和请求。\r\n•\t为家长和学生提供卓越的客户服务。\r\n•\t满足家长和学生的期望。\r\n•\t前台咨询及行政职责。\r\n•\t按照总部要求保持学习中心的专业水准。',NULL,NULL);
+INSERT INTO `cmf_icr_recruit` VALUES (1,'教师（阅读专员教师）','教授I Can Read 读写课程\r\n •\t教授2.5-12岁儿童。\r\n •\t运用I Can Read?学习模式教授预读技巧。\r\n •\t运用I Can Read?学习模式教授阅读理解技巧。\r\n •\t教授写作技巧，包括语法、包括语法，改错和写作类型。\r\n •\t教授口语表达和沟通技巧。\r\n •\t帮助学生提升社交能力，并养成良好的课堂习惯。\r\n 评估测验\r\n •\t为入学新生展开入学评估测验。\r\n •\t定期对学生课堂表现进行评估以掌握学生学习状况。\r\n 交流沟通\r\n •\t定期通过非正式会议、正式会议及家长会与学生','•\t监督学习中心的行政事务、日常运行及管理工作。\r\n•\t负责学习中心整体盈利状况及利润增长。\r\n•\t以良好的商业意识正确制定决策。\r\n•\t合理安排人手分配。\r\n•\t为学生和家长创造舒适的学习环境。\r\n•\t维护干净和良好的学习环境。\r\n•\t关心学生，确保学生安全。\r\n•\t编排课程及日程\r\n•\t听取、回复及管理客户的咨询和请求。\r\n•\t为家长和学生提供卓越的客户服务。\r\n•\t满足家长和学生的期望。\r\n•\t前台咨询及行政职责。\r\n•\t按照总部要求保持学习中心的专业水准。',NULL,NULL,'教师'),(2,'测试','测试','测试','0000-00-00 00:00:00','',NULL);
+
+#
+# Structure for table "cmf_icr_ru_intersect"
+#
+
+DROP TABLE IF EXISTS `cmf_icr_ru_intersect`;
+CREATE TABLE `cmf_icr_ru_intersect` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL DEFAULT '0',
+  `rid` int(11) NOT NULL DEFAULT '0',
+  `time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户招聘表';
+
+#
+# Data for table "cmf_icr_ru_intersect"
+#
+
 
 #
 # Structure for table "cmf_icr_school"
@@ -384,11 +406,11 @@ INSERT INTO `cmf_icr_recruit` VALUES (1,'教师（阅读专员教师）','教授
 
 DROP TABLE IF EXISTS `cmf_icr_school`;
 CREATE TABLE `cmf_icr_school` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL COMMENT '名称',
   `location` varchar(255) DEFAULT NULL COMMENT '地址',
   `city` varchar(255) DEFAULT NULL COMMENT '所在城市',
-  PRIMARY KEY (`Id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COMMENT='校区';
 
 #
@@ -403,22 +425,40 @@ INSERT INTO `cmf_icr_school` VALUES (1,'思明中心','厦门市思明区莲前�
 
 DROP TABLE IF EXISTS `cmf_icr_teacher`;
 CREATE TABLE `cmf_icr_teacher` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL COMMENT '姓名',
   `position` varchar(255) DEFAULT NULL COMMENT '职位',
   `resume` varchar(255) DEFAULT NULL COMMENT '简介',
   `phone` varchar(11) DEFAULT NULL COMMENT '手机',
-  `gender` bit(1) DEFAULT NULL COMMENT '性别',
+  `gender` tinyint(1) NOT NULL DEFAULT '1' COMMENT '性别',
   `age` int(11) DEFAULT NULL COMMENT '年龄',
   `icon` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT='教师';
+  `idea` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COMMENT='教师';
 
 #
 # Data for table "cmf_icr_teacher"
 #
 
-INSERT INTO `cmf_icr_teacher` VALUES (1,'Gread',NULL,'<div class=\"content\">Gerad老师毕业于南昆士兰大学，获得国际关系荣誉学士学位，教育学荣誉学士学位。<br/>曾在日本担任英语教师，现在新家坡I Can Read 担任英语阅读教师。<br/>教学之余他还喜欢滑板滑雪，阅读，电脑游戏和各类美食</div>\r\n                    <div class=\"idea\">教学理念——对每个人来讲，教学和学习都应该是一件开心的事。</div>',NULL,NULL,NULL,'/themes/RY/icr/imgs/headtecher.png'),(2,'Michelle',NULL,'——英语阅读老师',NULL,NULL,NULL,'/themes/RY/icr/imgs/gerad-copy.jpg');
+INSERT INTO `cmf_icr_teacher` VALUES (1,'Gread','英语老师','&lt;div class=&quot;content&quot;&gt;Gerad老师毕业于南昆士兰大学，获得国际关系荣誉学士学位，教育学荣誉学士学位。&lt;br/&gt;曾在日本担任英语教师，现在新家坡I Can Read 担任英语阅读教师。&lt;br/&gt;教学之余他还喜欢滑板滑雪，阅读，电脑游戏和各类美食&lt;/div&gt;\r\n                    &lt;div class=&quot;idea&quot;&gt;教学理念——对每个人来讲，教学和学习都应该是一件开心的','',1,0,'/themes/RY/icr/imgs/headtecher.png','教学理念——对每个人来讲，教学和学习都应该是一件开心的事。'),(2,'Michelle','英语阅读老师','——英语阅读老师',NULL,1,NULL,'/themes/RY/icr/imgs/gerad-copy.jpg',NULL);
+
+#
+# Structure for table "cmf_icr_tu_intersect"
+#
+
+DROP TABLE IF EXISTS `cmf_icr_tu_intersect`;
+CREATE TABLE `cmf_icr_tu_intersect` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tid` int(1) NOT NULL DEFAULT '0',
+  `uid` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户教师交叉表';
+
+#
+# Data for table "cmf_icr_tu_intersect"
+#
+
 
 #
 # Structure for table "cmf_link"
@@ -457,7 +497,7 @@ CREATE TABLE `cmf_nav` (
   `name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '导航位置名称',
   `remark` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT='前台导航位置表';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COMMENT='前台导航位置表';
 
 #
 # Data for table "cmf_nav"
@@ -725,13 +765,13 @@ CREATE TABLE `cmf_role_user` (
   PRIMARY KEY (`id`),
   KEY `role_id` (`role_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='用户角色对应表';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='用户角色对应表';
 
 #
 # Data for table "cmf_role_user"
 #
 
-INSERT INTO `cmf_role_user` VALUES (1,1,2);
+INSERT INTO `cmf_role_user` VALUES (2,2,2),(3,1,2);
 
 #
 # Structure for table "cmf_route"
@@ -910,16 +950,17 @@ CREATE TABLE `cmf_user` (
   `user_activation_key` varchar(60) NOT NULL DEFAULT '' COMMENT '激活码',
   `mobile` varchar(20) NOT NULL DEFAULT '' COMMENT '中国手机不带国家代码，国际手机号格式为：国家代码-手机号',
   `more` text COMMENT '扩展属性',
+  `near_sid` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_login` (`user_login`),
   KEY `user_nickname` (`user_nickname`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT='用户表';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COMMENT='用户表';
 
 #
 # Data for table "cmf_user"
 #
 
-INSERT INTO `cmf_user` VALUES (1,1,0,0,1533370538,0,0,0.00,1532877163,1,'pfan8','###d0f2a4c5864a955e1018dc0daa809356','pfan8','fqwgc8@outlook.com','','','','127.0.0.1','','',NULL),(2,1,0,0,0,0,0,0.00,0,1,'admin','###de80d66ce58ad0fcfd888f89f99eca87','','test@test.com','','','','','','',NULL);
+INSERT INTO `cmf_user` VALUES (1,1,0,0,1533815909,1,1,0.00,1532877163,1,'pfan8','###d0f2a4c5864a955e1018dc0daa809356','pfan8','fqwgc8@outlook.com','','','','127.0.0.1','','',NULL,1),(2,1,0,0,1533776170,0,0,0.00,0,1,'admin','###de80d66ce58ad0fcfd888f89f99eca87','','test@test.com','','','','127.0.0.1','','',NULL,1),(3,1,0,0,0,0,0,0.00,0,1,'test','','test','','','','','','','',NULL,1);
 
 #
 # Structure for table "cmf_user_action"
@@ -1071,12 +1112,13 @@ CREATE TABLE `cmf_user_score_log` (
   `score` int(11) NOT NULL DEFAULT '0' COMMENT '更改积分，可以为负',
   `coin` int(11) NOT NULL DEFAULT '0' COMMENT '更改金币，可以为负',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户操作积分等奖励日志表';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COMMENT='用户操作积分等奖励日志表';
 
 #
 # Data for table "cmf_user_score_log"
 #
 
+INSERT INTO `cmf_user_score_log` VALUES (1,1,1533644669,'login',1,1);
 
 #
 # Structure for table "cmf_user_token"
@@ -1091,13 +1133,13 @@ CREATE TABLE `cmf_user_token` (
   `token` varchar(64) NOT NULL DEFAULT '' COMMENT 'token',
   `device_type` varchar(10) NOT NULL DEFAULT '' COMMENT '设备类型;mobile,android,iphone,ipad,web,pc,mac,wxapp',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COMMENT='用户客户端登录 token 表';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT='用户客户端登录 token 表';
 
 #
 # Data for table "cmf_user_token"
 #
 
-INSERT INTO `cmf_user_token` VALUES (1,1,1548429500,1532877500,'9c77e3f56f532658c9ac30f70006844f63f4770fba88dc40a155e6b22ee00241','web');
+INSERT INTO `cmf_user_token` VALUES (1,1,1548429500,1532877500,'9c77e3f56f532658c9ac30f70006844f63f4770fba88dc40a155e6b22ee00241','web'),(2,2,1549299768,1533747768,'22b8ca3b575f43920b48682da4c8427547e447c261f2342decd52edc4b0fd5f3','web');
 
 #
 # Structure for table "cmf_verification_code"

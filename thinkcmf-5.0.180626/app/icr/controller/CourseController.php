@@ -20,12 +20,22 @@ class CourseController extends HomebaseController{
         $head_controller = new HeadController();
         $head_controller->setHeaderActive("course");
         $course_model = new CourseModel();
-        $course = $course_model->getCourseByID(1);
+        $course = $course_model->getCourseByID(29);
         $feedback_model = new FeedbackModel();
         $feedback = $feedback_model->getFeedbackByID(1);
+        $feedback_model->transformContentToHtml($feedback);
+        $goal_array = explode("\n", $course['goal']);
+        $goal_len = count($goal_array);
+        if($goal_len < 6)
+        {
+            for ($goal_len; $goal_len <= 6;$goal_len++)
+            {
+                $goal_array[] = "";
+            }
+        }
         $this->assign('course', $course);
         $this->assign('feedback', $feedback);
-        $this->assign('goal_array', explode("\n", $course['goal']));
+        $this->assign('goal_array', $goal_array);
         return $this->fetch(':course');
     }
 
@@ -54,13 +64,11 @@ class CourseController extends HomebaseController{
         //验证
         $rule = [
             'name'  => 'require',
-            'type' => 'require',
             'level'   => 'require|number|between:1,6',
         ];
 
         $msg = [
             'name.require' => '课程名必须',
-            'type.require' => '课程类别必须',
             'level.require'   => '课程等级必须',
             'level.between'  => '课程等级只能在1-6之间',
             'level.number'        => '课程等级只能是数字',

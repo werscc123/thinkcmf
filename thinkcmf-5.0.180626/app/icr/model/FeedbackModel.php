@@ -29,11 +29,6 @@ class FeedbackModel extends Model
             'icon' => $data['icon'],
             'title' => $data['title'],
         ];
-        $feecback_existed = Db::name('icr_feedback')->where($feedback);
-        if(!empty($feecback_existed)){
-            echo "已添加过！";
-            return;
-        }
         Db::name('icr_feedback')->insert($feedback);
     }
 
@@ -84,6 +79,18 @@ class FeedbackModel extends Model
     }
 
     /**
+     * 获取反馈列表，默认limit100
+     * @param $limit
+     * @return
+     */
+    public function getFeedbackList($limit=100)
+    {
+        return Db::name('icr_feedback')
+            ->limit($limit)
+            ->select();
+    }
+
+    /**
      * 通过id查询反馈
      * @param $data
      * @return
@@ -121,5 +128,23 @@ class FeedbackModel extends Model
     public function getFeedbackByType($type)
     {
         return Db::name('icr_feedback')->where('type',$type)->select();
+    }
+
+    public function transformContentToHtml(&$feedback)
+    {
+        $content_html = "";
+        //文字视频不同处理
+        if($feedback['type'] == 1)
+        {
+            foreach (explode("\n", $feedback['content']) as $item)
+            {
+                $content_html .= "<p>" . $item . "</p>";
+                $content_html .= "\n";
+            }
+        } elseif ($feedback['type'] == 2)
+        {
+            $content_html .= "<video src='" . $feedback['content'] ."' controls='controls' style='width: 200px;height: 200px'></video>";
+        }
+        $feedback['content'] = $content_html;
     }
 }

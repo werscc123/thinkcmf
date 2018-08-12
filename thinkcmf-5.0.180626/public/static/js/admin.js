@@ -91,8 +91,8 @@
                         content: btn.data('msg'),
                         cancelVal: '关闭',
                         cancel: function () {
-                            //btn.data('subcheck', false);
-                            //btn.click();
+                            btn.data('msg', false);
+                            btn.click();
                         },
                         ok: function () {
                             btn.data('msg', false);

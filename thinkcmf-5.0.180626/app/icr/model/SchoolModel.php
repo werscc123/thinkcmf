@@ -26,7 +26,7 @@ class SchoolModel extends Model
             'location' => $data['location'],
             'city' => $data['city'],
         ];
-        $school_existed = Db::name('icr_school')->where($school);
+        $school_existed = Db::name('icr_school')->where($school)->find();
         if(!empty($school_existed)){
             echo "已添加过！";
             return;
@@ -59,8 +59,8 @@ class SchoolModel extends Model
             'sid' => $data['sid'],
             'name' => $data['name'],
             'desc' => $data['desc'],
-            'start_time' => $data['start_time'],
-            'end_time' => $data['end_time'],
+            'start_time' => empty($data['start_time']) ? "" : $data['start_time'],
+            'end_time' => empty($data['end_time']) ? "" : $data['end_time'],
         ];
         Db::name('icr_activity')->insert($activity);
     }
@@ -106,15 +106,15 @@ class SchoolModel extends Model
             echo "不存在";
             return;
         }
-        Db::name('icr_school')
+        Db::name('icr_activity')
             ->where('id',$aid)
             ->update([
                     'sid' => $data['sid'],
                     'name' => $data['name'],
                     'desc' => $data['desc'],
                     'icon' => $data['icon'],
-                    'start_time' => $data['start_time'],
-                    'end_time' => $data['end_time'],
+                    'start_time' => empty($data['start_time']) ? "" : $data['start_time'],
+                    'end_time' => empty($data['end_time']) ? "" : $data['end_time'],
                 ]);
     }
 
@@ -134,6 +134,14 @@ class SchoolModel extends Model
             return;
         }
         Db::name('icr_school')->where('id',$id)->delete();
+
+        Db::name('icr_activity')
+            ->where('sid',$id)
+            ->delete();
+
+        Db::name('icr_picture')
+            ->where('sid',$id)
+            ->delete();
     }
 
     /**
@@ -173,6 +181,42 @@ class SchoolModel extends Model
     }
 
     /**
+     * 获取校区列表，默认limit100
+     * @param $limit
+     * @return
+     */
+    public function getSchoolList($limit=100)
+    {
+        return Db::name('icr_school')
+            ->limit($limit)
+            ->select();
+    }
+
+    /**
+     * 获取活动列表，默认limit100
+     * @param $limit
+     * @return
+     */
+    public function getActivityList($limit=100)
+    {
+        return Db::name('icr_activity')
+            ->limit($limit)
+            ->select();
+    }
+
+    /**
+     * 获取校区列表，默认limit100
+     * @param $limit
+     * @return
+     */
+    public function getPictureList($limit=100)
+    {
+        return Db::name('icr_picture')
+            ->limit($limit)
+            ->select();
+    }
+
+    /**
      * 通过id查询校区
      * @param $data
      * @return
@@ -189,7 +233,7 @@ class SchoolModel extends Model
      */
     public function getSchoolByName($name)
     {
-        return Db::name('icr_school')->where('name','like',$name)->select();
+        return Db::name('icr_school')->where('name','like',"%".$name."%")->select();
     }
 
     /**
@@ -199,7 +243,7 @@ class SchoolModel extends Model
      */
     public function getSchoolByLocation($location)
     {
-        return Db::name('icr_school')->where('location','like',$location)->select();
+        return Db::name('icr_school')->where('location','like',"%".$location."%")->select();
     }
 
     /**
@@ -209,7 +253,7 @@ class SchoolModel extends Model
      */
     public function getSchoolByCity($city)
     {
-        return Db::name('icr_school')->where('city',$city)->select();
+        return Db::name('icr_school')->where('city',"%".$city."%")->select();
     }
 
     /**
@@ -259,7 +303,7 @@ class SchoolModel extends Model
      */
     public function getActivityBySchoolID($sid)
     {
-        return Db::name('icr_activity')->where('id',$sid)->select();
+        return Db::name('icr_activity')->where('sid',$sid)->select();
     }
 
     /**
@@ -269,7 +313,7 @@ class SchoolModel extends Model
      */
     public function getActivityByName($name)
     {
-        Db::name('icr_activity')->where('name','like',$name)->select();
+        Db::name('icr_activity')->where('name','like',"%".$name."%")->select();
     }
 
     /**
@@ -279,7 +323,7 @@ class SchoolModel extends Model
      */
     public function getActivityByDesc($desc)
     {
-        return Db::name('icr_activity')->where('desc','like',$desc)->select();
+        return Db::name('icr_activity')->where('desc','like',"%".$desc."%")->select();
     }
 
     /**

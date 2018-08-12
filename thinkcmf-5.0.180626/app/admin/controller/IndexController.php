@@ -36,12 +36,12 @@ class IndexController extends AdminBaseController
     public function index()
     {
         $adminMenuModel = new AdminMenuModel();
-        $menus          = cache('admin_menus_' . cmf_get_current_admin_id(), '', null, 'admin_menus');
-
-        if (empty($menus)) {
+//        $menus          = cache('admin_menus_' . cmf_get_current_admin_id(), '', null, 'admin_menus');
+//
+//        if (empty($menus)) {
             $menus = $adminMenuModel->menuTree();
             cache('admin_menus_' . cmf_get_current_admin_id(), $menus, null, 'admin_menus');
-        }
+//        }
 
         $this->assign("menus", $menus);
 

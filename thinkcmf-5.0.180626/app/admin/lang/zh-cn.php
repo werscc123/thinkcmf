@@ -144,8 +144,8 @@ return [
     'SETTING'                            => '设置',
     "ADD_SUCCESS"                        => '添加成功！',
     "ADD_FAILED"                         => '添加失败！',
-    "EDIT_SUCCESS"                       => '保存成功！',
-    "EDIT_FAILED"                        => '保存失败！',
+    "EDIT_SUCCESS"                       => '修改成功！',
+    "EDIT_FAILED"                        => '修改失败！',
     "DELETE_SUCCESS"                     => '删除成功！',
     "DELETE_FAILED"                      => '删除失败！',
     "NO_ID"                              => '编号不存在！',
@@ -159,6 +159,10 @@ return [
     "EMAIL_ACTIVATION"                   => '邮箱激活',
     "EMAIL_SUBJECT"                      => '邮件标题',
     "EMAIL_TEMPLATE"                     => '邮件模版',
-    "EMAIL_TEMPLATE_HELP_TEXT"           => '请用{$link}代替激活链接，{$username}代替用户名'
+    "EMAIL_TEMPLATE_HELP_TEXT"           => '请用{$link}代替激活链接，{$username}代替用户名',
+    "COURSE_NAME"                        => '课程名称',
+    "TEACHER_NAME"                       => '教师名称',
+    "SCHOOL_NAME"                        => '校区名称',
+    "RECRUIT_POSITION"                   => '应聘职位',
 ];
 

@@ -25,11 +25,11 @@ class RecruitModel extends Model
             'position' => $data['position'],
             'desc' => $data['desc'],
             'require' => $data['require'],
-            'start_time' => $data['start_time'],
-            'end_time' => $data['end_time'],
+            'start_time' => empty($data['start_time']) ? "" : $data['start_time'],
+            'end_time' => empty($data['end_time']) ? "" : $data['end_time'],
         ];
-        $recruit_existed = Db::name('icr_recruit')->where($recruit);
-        if(!empty($feecback_existed)){
+        $recruit_existed = Db::name('icr_recruit')->where($recruit)->find();
+        if(!empty($recruit_existed)){
             echo "已添加过！";
             return;
         }
@@ -58,8 +58,8 @@ class RecruitModel extends Model
                     'position' => $data['position'],
                     'desc' => $data['desc'],
                     'require' => $data['require'],
-                    'start_time' => $data['start_time'],
-                    'end_time' => $data['end_time'],]
+                    'start_time' => empty($data['start_time']) ? "" : $data['start_time'],
+                    'end_time' => empty($data['end_time']) ? "" : $data['end_time'],]
                     );
     }
 
@@ -82,6 +82,18 @@ class RecruitModel extends Model
     }
 
     /**
+     * 获取招聘列表，默认limit100
+     * @param $limit
+     * @return
+     */
+    public function getRecruitList($limit=100)
+    {
+        return Db::name('icr_recruit')
+            ->limit($limit)
+            ->select();
+    }
+
+    /**
      * 通过id查询招聘
      * @param $data
      * @return
@@ -98,7 +110,7 @@ class RecruitModel extends Model
      */
     public function getRecruitByPosition($position)
     {
-        Db::name('icr_recruit')->where('position',$position)->select();
+        return Db::name('icr_recruit')->where('position','like',"%".$position."%")->select();
     }
 
     /**
@@ -108,7 +120,7 @@ class RecruitModel extends Model
      */
     public function getRecruitByDesc($desc)
     {
-        return Db::name('icr_recruit')->where('desc','like',$desc)->select();
+        return Db::name('icr_recruit')->where('desc','like',"%".$desc."%")->select();
     }
 
     /**
@@ -118,7 +130,7 @@ class RecruitModel extends Model
      */
     public function getRecruitByRequire($require)
     {
-        return Db::name('icr_recruit')->where('require','like',$require)->select();
+        return Db::name('icr_recruit')->where('require','like',"%".$require."%")->select();
     }
 
     /**

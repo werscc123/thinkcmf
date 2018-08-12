@@ -26,51 +26,55 @@ class CourseModel extends Model
             'describe' => $data['describe'],
             'level' => $data['level'],
             'goal' => $data['goal'],
+            'icon' => $data['icon'],
         ];
-        $course_existed = Db::name('icr_course')->where($course);
+        $course_existed = Db::name('icr_course')->where($course)->find();
         if(!empty($course_existed)){
             echo "已添加过！";
             return;
         }
         $cid = Db::name('icr_course')->insertGetId($course);
         //绑定课程类别
-        $course_type_id = $data['course_type_id'];
-        if(is_array($course_type_id)) {
-            foreach ($course_type_id as $value) {
-                $tid = $value;
-                $ct_intersect = [
-                    'cid' => $cid,
-                    'tid' => $tid,
-                ];
-                Db::name('icr_ctype_intersect')->insert($ct_intersect);
-            }
-        } else {
-            $tid = $course_type_id['id'];
-            $ct_intersect = [
-                'cid' => $cid,
-                'tid' => $tid,
-            ];
-            Db::name('icr_ctype_intersect')->insert($ct_intersect);
-        }
+//        $course_type_id = $data['course_type_id'];
+//        if(is_array($course_type_id)) {
+//            foreach ($course_type_id as $value) {
+//                $tid = $value;
+//                $ct_intersect = [
+//                    'cid' => $cid,
+//                    'tid' => $tid,
+//                ];
+//                Db::name('icr_ctype_intersect')->insert($ct_intersect);
+//            }
+//        } else {
+//            $tid = $course_type_id['id'];
+//            $ct_intersect = [
+//                'cid' => $cid,
+//                'tid' => $tid,
+//            ];
+//            Db::name('icr_ctype_intersect')->insert($ct_intersect);
+//        }
         //绑定老师
-        $teacher_id = $data['teacher_id'];
-        if(is_array($teacher_id)) {
-            foreach ($teacher_id as $value) {
-                $tid = $value;
-                $ct_intersect = [
-                    'cid' => $cid,
-                    'tid' => $tid,
-                ];
-                Db::name('icr_cteacher_intersect')->insert($ct_intersect);
-            }
-        } else {
-            $tid = $teacher_id;
-            $ct_intersect = [
-                'cid' => $cid,
-                'tid' => $tid,
-            ];
-            Db::name('icr_cteacher_intersect')->insert($ct_intersect);
-        }
+//        $teacher_id = $data['teacher_id'];
+//        if ($teacher_id != 0)
+//        {
+//            if (is_array($teacher_id)) {
+//                foreach ($teacher_id as $value) {
+//                    $tid = $value;
+//                    $ct_intersect = [
+//                        'cid' => $cid,
+//                        'tid' => $tid,
+//                    ];
+//                    Db::name('icr_cteacher_intersect')->insert($ct_intersect);
+//                }
+//            } else {
+//                $tid = $teacher_id;
+//                $ct_intersect = [
+//                    'cid' => $cid,
+//                    'tid' => $tid,
+//                ];
+//                Db::name('icr_cteacher_intersect')->insert($ct_intersect);
+//            }
+//        }
     }
 
     /**
@@ -97,6 +101,9 @@ class CourseModel extends Model
      */
     public function bookCourse($data)
     {
+        if (empty($data['time']))
+            $data['time'] = new \DateTime('now');
+        $data['time'] = $data['time']->format('Y-m-d H:i:s');
         $book = [
             'cid' => $data['cid'],
             'phone' => $data['phone'],
@@ -107,6 +114,22 @@ class CourseModel extends Model
         if(empty($result)) {
             Db::name('icr_book')->insert($book);
         }
+    }
+
+    /**
+     * 修改预定信息
+     * @param $data
+     * @return
+     */
+    public function updateBook($data)
+    {
+        Db::name('icr_book')
+            ->where('id',$data['id'])
+            ->update(['phone' => $data['phone'],
+                    'cid' => $data['cid'],
+                    'has_notified' => $data['has_notified'],
+                    'time' => $data['time']]
+            );
     }
 
 
@@ -150,46 +173,49 @@ class CourseModel extends Model
                     'goal' => $data['goal'],
                     'icon' => $data['icon']]
                     );
-        $result = Db::name('icr_ctype_intersect')->where('id',$cid)->select();
-        if(!empty($result))
-            Db::name('icr_ctype_intersect')->where('id',$cid)->delete();
+//        $result = Db::name('icr_ctype_intersect')->where('cid',$cid)->select();
+//        if(!empty($result))
+//            Db::name('icr_ctype_intersect')->where('cid',$cid)->delete();
         //绑定课程类别
-        $course_type = $data['type'];
-        if(is_array($course_type)) {
-            foreach ($course_type as $value) {
-                $tid = $course_type['id'];
-                $ct_intersect = [
-                    'cid' => $cid,
-                    'tid' => $tid,
-                ];
-                Db::name('icr_ctype_intersect')->insert($ct_intersect);
-            }
-        } else {
-            $tid = $course_type['id'];
-            $ct_intersect = [
-                'cid' => $cid,
-                'tid' => $tid,
-            ];
-            Db::name('icr_ctype_intersect')->insert($ct_intersect);
-        }
+//        $course_type = $data['type'];
+//        if(is_array($course_type)) {
+//            foreach ($course_type as $value) {
+//                $tid = $course_type['id'];
+//                $ct_intersect = [
+//                    'cid' => $cid,
+//                    'tid' => $tid,
+//                ];
+//                Db::name('icr_ctype_intersect')->insert($ct_intersect);
+//            }
+//        } else {
+//            $tid = $course_type['id'];
+//            $ct_intersect = [
+//                'cid' => $cid,
+//                'tid' => $tid,
+//            ];
+//            Db::name('icr_ctype_intersect')->insert($ct_intersect);
+//        }
         //绑定老师
-        $teacher_id = $data['teacher_id'];
-        if(is_array($teacher_id)) {
-            foreach ($teacher_id as $value) {
-                $tid = $value;
+        if (!empty($data['teacher_id']))
+        {
+            $teacher_id = $data['teacher_id'];
+            if(empty($teacher_id['id'])) {
+                foreach ($teacher_id as $value) {
+                    $tid = $value;
+                    $ct_intersect = [
+                        'cid' => $cid,
+                        'tid' => $tid,
+                    ];
+                    Db::name('icr_cteacher_intersect')->insert($ct_intersect);
+                }
+            } else {
+                $tid = $teacher_id[0];
                 $ct_intersect = [
                     'cid' => $cid,
                     'tid' => $tid,
                 ];
                 Db::name('icr_cteacher_intersect')->insert($ct_intersect);
             }
-        } else {
-            $tid = $teacher_id;
-            $ct_intersect = [
-                'cid' => $cid,
-                'tid' => $tid,
-            ];
-            Db::name('icr_cteacher_intersect')->insert($ct_intersect);
         }
     }
 
@@ -246,6 +272,30 @@ class CourseModel extends Model
     }
 
     /**
+     * 获取课程列表，默认limit100
+     * @param $limit
+     * @return
+     */
+    public function getCourseList($limit=100)
+    {
+        return Db::name('icr_course')
+            ->limit($limit)
+            ->select();
+    }
+
+    /**
+     * 获取预定列表，默认limit100
+     * @param $limit
+     * @return
+     */
+    public function getBookList($limit=100)
+    {
+        return Db::name('icr_book')
+            ->limit($limit)
+            ->select();
+    }
+
+    /**
      * 通过课程id查询课程
      * @param $phone
      * @return
@@ -262,7 +312,7 @@ class CourseModel extends Model
      */
     public function getCourseByName($name)
     {
-        return Db::name('icr_course')->where('name','like',$name)->find();
+        return Db::name('icr_course')->where('name','like',"%".$name."%")->select();
     }
 
     /**
@@ -282,7 +332,7 @@ class CourseModel extends Model
      */
     public function getCourseByType($type)
     {
-        return Db::name('icr_course')->where('type',$type)->select();
+        return Db::name('icr_course')->where('type','like',"%".$type."%")->select();
     }
 
     /**
@@ -292,16 +342,17 @@ class CourseModel extends Model
      */
     public function getCourseByTeacher($tid)
     {
-        $cid = Db::name('icr_cteacher_intersect')->where('tid',$tid)->select();
-        if(is_array($cid)) {
+        $cid = Db::name('icr_cteacher_intersect')->where('tid',$tid)->select()->column('cid');
+        if(empty($cid['id'])) {
             $course_list = [];
             foreach ($cid as $value) {
                 array_push($course_list, Db::name('icr_course')->where('id',$value)->find());
             }
             return $course_list;
-        } else {
-            return Db::name('icr_course')->where('id',$cid)->find();
-        }
+        } else if(!empty($cid)) {
+            return Db::name('icr_course')->where('id',$cid[0])->find();
+        } else
+            return null;
     }
 
     /**
@@ -311,7 +362,37 @@ class CourseModel extends Model
      */
     public function getBooks($phone)
     {
-        return Db::name('icr_book')->where('phone',$phone)->select();
+        return Db::name('icr_book')->where('phone','like',"%".$phone."%")->select();
+    }
+
+    /**
+     * 通过课程ID查询订单
+     * @param $phone
+     * @return
+     */
+    public function getBooksByCID($cid)
+    {
+        return Db::name('icr_book')->where('cid',$cid)->select();
+    }
+
+    /**
+     * 通过订单ID查询订单
+     * @param $phone
+     * @return
+     */
+    public function getBookByID($id)
+    {
+        return Db::name('icr_book')->where('id',$id)->find();
+    }
+
+    /**
+     * 通过是否通知查询订单
+     * @param $phone
+     * @return
+     */
+    public function getBooksByNotified($has_notified)
+    {
+        return Db::name('icr_book')->where('has_notified',$has_notified)->select();
     }
 
     /**
