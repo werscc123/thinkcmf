@@ -18,9 +18,8 @@ class TeacherController extends HomebaseController{
         $head_controller = new HeadController();
         $head_controller->setHeaderActive("teacher");
         $teacher_model = new TeacherModel();
-        $head_teacher = $teacher_model->getTeacherByID(1);
-        $teacher = $teacher_model->getTeacherByID(2);
-        $this->assign('head_teacher', $head_teacher);
+        $teacher = $teacher_model->getTeacherList();
+        $this->complementTeacher($teacher);
         $this->assign('teacher', $teacher);
         return $this->fetch(':teachers');
     }
@@ -188,4 +187,39 @@ class TeacherController extends HomebaseController{
         return $teacher_model->getTeacherByCourse($cid);
     }
 
+    private function complementTeacher(&$teachers)
+    {
+        for ($i = 0; $i < count($teachers); $i++) {
+            $teacher = $teachers->shift();
+            if (empty($teacher['icon'])) {
+                $teacher['icon'] = '/themes/RY/icr/imgs/timg.jpg';
+            }
+            $this->transformToHtml($teacher);
+            $teachers->push($teacher);
+        }
+        while (count($teachers) < 6) {
+            $teacher = [
+                'icon' => '/themes/RY/icr/imgs/timg.jpg',
+                'name' => '待添加',
+                'resume' => '待添加',
+                'position' => '待添加',
+                'idea' => '待添加',
+            ];
+            $this->transformToHtml($teacher);
+            $teachers->push($teacher);
+        }
+    }
+
+    private function transformToHtml(&$teacher)
+    {
+        $teacher['position'] = "——" . $teacher['position'];
+//        $resume_array = explode('\n',$teacher['resume']);
+//        $resume = "";
+//        for($i = 0; $i < count($resume_array);$i++)
+//        {
+//            $resume = $resume . $resume_array[$i] + "<br/>";
+//        }
+//        echo $resume;
+//        $teacher['resume'] = $resume;
+    }
 }

@@ -20,11 +20,28 @@ class CourseController extends HomebaseController{
         $head_controller = new HeadController();
         $head_controller->setHeaderActive("course");
         $course_model = new CourseModel();
-        $course = $course_model->getCourseByID(29);
+        $course = $course_model->getCourseList();
         $feedback_model = new FeedbackModel();
-        $feedback = $feedback_model->getFeedbackByID(1);
-        $feedback_model->transformContentToHtml($feedback);
-        $goal_array = explode("\n", $course['goal']);
+        $feedback_video = $feedback_model->getFeedbackByType(2);
+        $feedback_text = $feedback_model->getFeedbackByType(1);
+        for ($i = 0;$i < count($feedback_video); $i++) {
+            $feedback = $feedback_video->shift();
+            $feedback_model->transformContentToHtml($feedback);
+            $feedback_video->push($feedback);
+        }
+        for ($i = 0;$i < count($feedback_text); $i++) {
+            $feedback = $feedback_text->shift();
+            $feedback_model->transformContentToHtml($feedback);
+            $feedback_text->push($feedback);
+        }
+        $data = $this->request->post();
+        $level = empty($data['level']) ? 1 : $data['level'];
+        echo $level;
+        $course_level = $this->getCourseByLevel($level);
+        if (empty($course_level['goal']))
+            $goal_array = explode("\n", $course_level[0]['goal']);
+        else
+            $goal_array = explode("\n", $course_level['goal']);
         $goal_len = count($goal_array);
         if($goal_len < 6)
         {
@@ -33,8 +50,12 @@ class CourseController extends HomebaseController{
                 $goal_array[] = "";
             }
         }
+        $this->complementCourse($course);
+        $this->complementFeedback($feedback_video);
+        $this->complementFeedback($feedback_text);
         $this->assign('course', $course);
-        $this->assign('feedback', $feedback);
+        $this->assign('feedback_video', $feedback_video);
+        $this->assign('feedback_text', $feedback_text);
         $this->assign('goal_array', $goal_array);
         return $this->fetch(':course');
     }
@@ -284,9 +305,8 @@ class CourseController extends HomebaseController{
      * @param $data
      * @return
      */
-    public function getCourseByLevel()
+    public function getCourseByLevel($level = 1)
     {
-        $level = $_GET['level'];
         $course_model = new CourseModel();
         return $course_model->getCourseByLevel($level);
     }
@@ -349,5 +369,44 @@ class CourseController extends HomebaseController{
         $time = $_GET['time'];
         $course_model = new CourseModel();
         return $course_model->getBooksAfterTime($time);
+    }
+
+    private function complementCourse(&$courses)
+    {
+        for ($i = 0; $i < count($courses); $i++) {
+            $course = $courses->shift();
+            if (empty($feedback['icon'])) {
+                $feedback['icon'] = '/themes/RY/icr/imgs/timg.jpg';
+            }
+            $courses->push($course);
+        }
+        while (count($courses) < 6) {
+            $course = [
+                'icon' => '/themes/RY/icr/imgs/timg.jpg',
+                'name' => '待添加',
+            ];
+            $courses->push($course);
+        }
+    }
+
+    private function complementFeedback(&$feedbacks)
+    {
+        for ($i = 0; $i < count($feedbacks); $i++) {
+            $feedback = $feedbacks->shift();
+            if (empty($feedback['icon'])) {
+                $feedback['icon'] = '/themes/RY/icr/imgs/timg.jpg';
+            }
+            $feedbacks->push($feedback);
+        }
+
+        while (count($feedbacks) < 4) {
+            $feedback = [
+                'icon' => '/themes/RY/icr/imgs/timg.jpg',
+                'title' => '待添加',
+                'content' => '待添加',
+            ];
+            $feedbacks->push($feedback);
+        }
+
     }
 }

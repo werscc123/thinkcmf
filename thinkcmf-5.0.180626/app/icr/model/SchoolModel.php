@@ -25,6 +25,7 @@ class SchoolModel extends Model
             'name' => $data['name'],
             'location' => $data['location'],
             'city' => $data['city'],
+            'coordinate' => $data['coordinate'],
         ];
         $school_existed = Db::name('icr_school')->where($school)->find();
         if(!empty($school_existed)){
@@ -86,7 +87,8 @@ class SchoolModel extends Model
             ->update([
                     'name' => $data['name'],
                     'location' => $data['location'],
-                    'city' => $data['city'],]
+                    'city' => $data['city'],
+                    'coordinate' => $data['coordinate']]
             );
     }
 

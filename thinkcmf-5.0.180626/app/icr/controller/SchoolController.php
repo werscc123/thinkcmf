@@ -18,14 +18,35 @@ class SchoolController extends HomebaseController{
         $head_controller = new HeadController();
         $head_controller->setHeaderActive("school");
         $school_model = new SchoolModel();
-        $school = $school_model->getSchoolByID(1);
-        $school_picture_list = $school_model->getPictureListBySchoolID(1);
+        $school = $school_model->getSchoolList();
+        $school_picture_list = $school_model->getPictureList();
         $school_picture = $this->transformPictureList($school_picture_list);
-        $school_activity = $school_model->getActivityBySchoolID(1);
+        $school_activity = $school_model->getActivityList();
         $this->assign('school',$school);
         $this->assign('school_picture',$school_picture);
+        $this->complementActivity($school_activity);
         $this->assign('school_activity',$school_activity);
         return $this->fetch(':school');
+    }
+
+    public function getSchoolList() {
+        $school_model = new SchoolModel();
+        return $school_model->getSchoolList();
+    }
+
+    /**
+     * 通过城市查询校区
+     * @param $data
+     * @return
+     */
+    public function getSchoolByCity() {
+        $data = $this->request->post();
+        $school_list = [];
+        if (!empty($data['city'])) {
+            $school_model = new SchoolModel();
+            $school_list = $school_model->getSchoolByCity($data['city']);
+        }
+        return $school_list->toJson();
     }
 
     /**
@@ -208,16 +229,6 @@ class SchoolController extends HomebaseController{
         return $school_model->getSchoolByLocation($_GET['location']);
     }
 
-    /**
-     * 通过城市查询校区
-     * @param $data
-     * @return
-     */
-    public function getSchoolByCity()
-    {
-        $school_model = new SchoolModel();
-        return $school_model->getSchoolByCity($_GET['city']);
-    }
 
     /**
      * 通过id查询图片
@@ -322,6 +333,24 @@ class SchoolController extends HomebaseController{
             $picture .= "\"/></div>\n";
         }
         return $picture;
+    }
+
+    private function complementActivity(&$activitys)
+    {
+        for ($i = 0; $i < count($activitys); $i++) {
+            $activity = $activitys->shift();
+            if (empty($activity['icon'])) {
+                $activity['icon'] = '/themes/RY/icr/imgs/timg.jpg';
+            }
+            $activitys->push($activity);
+        }
+        while (count($activitys) < 6) {
+            $activity = [
+                'icon' => '/themes/RY/icr/imgs/timg.jpg',
+                'name' => '待添加',
+            ];
+            $activitys->push($activity);
+        }
     }
 
 }

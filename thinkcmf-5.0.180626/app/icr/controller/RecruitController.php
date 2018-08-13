@@ -18,7 +18,8 @@ class RecruitController extends HomebaseController{
         $head_controller = new HeadController();
         $head_controller->setHeaderActive("recruit");
         $recruit_model = new RecruitModel();
-        $recruit = $recruit_model->getRecruitByID(1);
+        $recruit = $recruit_model->getRecruitList();
+        $this->complementRecruit($recruit);
         $brief_intro = $this->getBriefIntro($recruit);
         $this->assign('recruit', $recruit);
         $this->assign('brief_intro', $brief_intro);
@@ -170,12 +171,36 @@ class RecruitController extends HomebaseController{
      */
     private function getBriefIntro($recruit)
     {
-        $intro_list = explode("\n",$recruit['desc']);
-        $brief_intro = "";
-        for ($x = 0; $x < 9; $x++) {
-            $brief_intro .= "<p>" . $intro_list[$x] . "</p>\n";
+        $brief_intro = [];
+        foreach ($recruit as $item) {
+            $intro_list = explode("\n",$item['desc']);
+            $bi_item = "";
+            for ($x = 0; $x < count($intro_list)-1; $x++) {
+                $bi_item .= "<p>" . $intro_list[$x] . "</p>\n";
+            }
+            $bi_item .= "<p>" . $intro_list[count($intro_list)-1] . "</p>\n";
+            $brief_intro[] = $bi_item;
         }
-        $brief_intro .= "<p>" . $intro_list[9] . "</p>\n";
         return $brief_intro;
+    }
+
+    private function complementRecruit(&$recruits)
+    {
+        for ($i = 0; $i < count($recruits); $i++) {
+            $recruit = $recruits->shift();
+            if (empty($recruit['icon'])) {
+                $recruit['icon'] = '/themes/RY/icr/imgs/timg.jpg';
+            }
+            $recruits->push($recruit);
+        }
+        while (count($recruits) < 3) {
+            $recruit = [
+                'icon' => '/themes/RY/icr/imgs/timg.jpg',
+                'position' => '待添加',
+                'desc' => '待添加',
+                'require' => '待添加',
+            ];
+            $recruits->push($recruit);
+        }
     }
 }
