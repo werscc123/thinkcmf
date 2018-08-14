@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:26:"themes/RY/icr\\course.html";i:1534224747;s:33:"../public/themes/RY/icr/head.html";i:1534226396;s:76:"E:\php\PHPTutorial\WWW\thinkcmf-5.0.180626\public\themes\RY\public\head.html";i:1529914518;s:80:"E:\php\PHPTutorial\WWW\thinkcmf-5.0.180626\public\themes\RY\public\function.html";i:1529914518;s:79:"E:\php\PHPTutorial\WWW\thinkcmf-5.0.180626\public\themes\RY\public\scripts.html";i:1529914518;s:33:"../public/themes/RY/icr/foot.html";i:1534077926;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:26:"themes/RY/icr\\course.html";i:1534224747;s:33:"../public/themes/RY/icr/head.html";i:1534235063;s:76:"E:\php\PHPTutorial\WWW\thinkcmf-5.0.180626\public\themes\RY\public\head.html";i:1529914518;s:80:"E:\php\PHPTutorial\WWW\thinkcmf-5.0.180626\public\themes\RY\public\function.html";i:1529914518;s:79:"E:\php\PHPTutorial\WWW\thinkcmf-5.0.180626\public\themes\RY\public\scripts.html";i:1529914518;s:33:"../public/themes/RY/icr/foot.html";i:1534077926;}*/ ?>
 <!DOCTYPE html>
 <meta charset="utf-8" lang="zh_cn">
 <head>
@@ -109,13 +109,13 @@ function _sp_helloworld3(){
         </div>
         <div class="menu">
             <ul>
-                <li class="<?php echo $home_active; ?>" onclick="{location='../'}">首页</li>
-                <li class="<?php echo $course_active; ?>" onclick="{location='../icr/course'}">课程内容</li>
-                <li class="<?php echo $teacher_active; ?>" onclick="{location='../icr/teacher'}">优质师资</li>
-                <li class="<?php echo $school_active; ?>" onclick="{location='../icr/school'}">校区风采</li>
-                <li class="<?php echo $recruit_active; ?>" onclick="{location='../icr/recruit'}">人才招聘</li>
-                <li class="<?php echo $join_active; ?>" onclick="{location='../icr/join'}">合作加盟</li>
-                <li class="<?php echo $about_active; ?>" onclick="{location='../icr/about'}">关于我们</li>
+                <li class="<?php echo $home_active; ?>" onclick="{location='<?php echo url('/'); ?>'}">首页</li>
+                <li class="<?php echo $course_active; ?>" onclick="{location='<?php echo url('/icr/course'); ?>'">课程内容</li>
+                <li class="<?php echo $teacher_active; ?>" onclick="{location='<?php echo url('/icr/teacher'); ?>'}">优质师资</li>
+                <li class="<?php echo $school_active; ?>" onclick="{location='<?php echo url('/icr/school'); ?>'}">校区风采</li>
+                <li class="<?php echo $recruit_active; ?>" onclick="{location='<?php echo url('/icr/recruit'); ?>'}">人才招聘</li>
+                <li class="<?php echo $join_active; ?>" onclick="{location='<?php echo url('/icr/join'); ?>'}">合作加盟</li>
+                <li class="<?php echo $about_active; ?>" onclick="{location='<?php echo url('/icr/about'); ?>'}">关于我们</li>
             </ul>
         </div>
         <div class="account">

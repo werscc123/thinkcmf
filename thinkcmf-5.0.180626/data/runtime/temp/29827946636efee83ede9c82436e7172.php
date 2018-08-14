@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:28:"themes/RY/icr\\teachers.html";i:1534175600;s:33:"../public/themes/RY/icr/head.html";i:1534225554;s:76:"E:\php\PHPTutorial\WWW\thinkcmf-5.0.180626\public\themes\RY\public\head.html";i:1529914518;s:80:"E:\php\PHPTutorial\WWW\thinkcmf-5.0.180626\public\themes\RY\public\function.html";i:1529914518;s:79:"E:\php\PHPTutorial\WWW\thinkcmf-5.0.180626\public\themes\RY\public\scripts.html";i:1529914518;s:33:"../public/themes/RY/icr/foot.html";i:1534077926;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:28:"themes/RY/icr\\teachers.html";i:1534175600;s:33:"../public/themes/RY/icr/head.html";i:1534235063;s:76:"E:\php\PHPTutorial\WWW\thinkcmf-5.0.180626\public\themes\RY\public\head.html";i:1529914518;s:80:"E:\php\PHPTutorial\WWW\thinkcmf-5.0.180626\public\themes\RY\public\function.html";i:1529914518;s:79:"E:\php\PHPTutorial\WWW\thinkcmf-5.0.180626\public\themes\RY\public\scripts.html";i:1529914518;s:33:"../public/themes/RY/icr/foot.html";i:1534077926;}*/ ?>
 <!--#include virtual="./head.html" -->
 <!DOCTYPE html>
 <meta charset="utf-8" lang="zh_cn">
@@ -94,13 +94,24 @@ function _sp_helloworld3(){
         <div class="logo"><img src="/themes/RY/icr/imgs/logo.svg" /></div>
         <div class="position">
             <i class="fa fa-map-marker fa-2x"></i>
-            <span class="location">当前位置:&nbsp;&nbsp;&nbsp;&nbsp;广州</span>
+            <span class="location">当前位置:&nbsp;&nbsp;&nbsp;&nbsp;广州
+                <div class="city_list">
+                    <div class="jt"></div>
+                    <div class="city_content">
+                        <ul>
+                            <?php if(is_array($city_list) || $city_list instanceof \think\Collection || $city_list instanceof \think\Paginator): $i = 0; $__LIST__ = $city_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+                                 <li><a href="#"><?php echo $vo['city']; ?></a></li>
+                            <?php endforeach; endif; else: echo "" ;endif; ?>
+                        </ul>
+                    </div>
+                </div>
+            </span>
             <i class="fa fa-caret-down" style="font-size: 25px"></i>
         </div>
         <div class="menu">
             <ul>
                 <li class="<?php echo $home_active; ?>" onclick="{location='<?php echo url('/'); ?>'}">首页</li>
-                <li class="<?php echo $course_active; ?>" onclick="{location='<?php echo url('/icr/course'); ?>'}">课程内容</li>
+                <li class="<?php echo $course_active; ?>" onclick="{location='<?php echo url('/icr/course'); ?>'">课程内容</li>
                 <li class="<?php echo $teacher_active; ?>" onclick="{location='<?php echo url('/icr/teacher'); ?>'}">优质师资</li>
                 <li class="<?php echo $school_active; ?>" onclick="{location='<?php echo url('/icr/school'); ?>'}">校区风采</li>
                 <li class="<?php echo $recruit_active; ?>" onclick="{location='<?php echo url('/icr/recruit'); ?>'}">人才招聘</li>
@@ -111,23 +122,10 @@ function _sp_helloworld3(){
         <div class="account">
             <?php echo $login_html; ?>
         </div>
-        <div class="city_list">
-            <div class="jt"></div>
-            <div class="city_content">
-                <ul>
-                    <li>广州</li>
-                    <li>重庆</li>
-                    <li>长春</li>
-                    <li>大连</li>
-                    <li>厦门</li>
-                    <li>南通</li>
-                    <li>西安</li>
-                    <li>顺德</li>
-                </ul>
-            </div>
-        </div>
+
     </div>
 </header>
+
 <section class="l_r_window" style="display: none;">
     <div class="window">
         <div class="window-header">
@@ -184,11 +182,9 @@ function _sp_helloworld3(){
                 <div class="window-input">
                     <select>
                         <option>请选择离您最近的中心</option>
-                        <option>深圳</option>
-                        <option>贵阳</option>
-                        <option>广州</option>
-                        <option>北京</option>
-                        <option>上海</option>
+                        <?php if(is_array($city_list) || $city_list instanceof \think\Collection || $city_list instanceof \think\Paginator): $i = 0; $__LIST__ = $city_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+                            <option><?php echo $vo['city']; ?></option>
+                        <?php endforeach; endif; else: echo "" ;endif; ?>
                     </select>
                     <i class="fa fa-angle-down"></i>
                 </div>

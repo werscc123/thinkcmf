@@ -90,7 +90,7 @@ $(function(){
         var padding = list.css('marginLeft');
         clearTimeout(timeoutId);
         timeoutId = window.setInterval(function(){
-            var newpadding = parseInt(list.css('marginLeft').replace('px',''))+1;
+            var newpadding = parseInt(list.css('marginLeft').replace('px','')) + 1;
             if(newpadding<=0){
                 list.css('marginLeft',newpadding+'px')
             }

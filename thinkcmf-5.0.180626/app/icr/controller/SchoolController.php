@@ -19,7 +19,9 @@ class SchoolController extends HomebaseController{
         $head_controller->setHeaderActive("school");
         $school_model = new SchoolModel();
         $school = $school_model->getSchoolList();
+        $this->complementSchool($school);
         $school_picture_list = $school_model->getPictureList();
+        $this->complementPicture($school_picture_list);
         $school_picture = $this->transformPictureList($school_picture_list);
         $school_activity = $school_model->getActivityList();
         $this->assign('school',$school);
@@ -350,6 +352,42 @@ class SchoolController extends HomebaseController{
                 'name' => '待添加',
             ];
             $activitys->push($activity);
+        }
+    }
+
+    private function complementSchool(&$schools)
+    {
+        for ($i = 0; $i < count($schools); $i++) {
+            $school = $schools->shift();
+            if (empty($school['icon'])) {
+                $school['icon'] = '/themes/RY/icr/imgs/timg.jpg';
+            }
+            $schools->push($school);
+        }
+        while (count($schools) < 6) {
+            $school = [
+                'icon' => '/themes/RY/icr/imgs/timg.jpg',
+                'name' => '待添加',
+            ];
+            $schools->push($school);
+        }
+    }
+
+    private function complementPicture(&$pictures)
+    {
+        for ($i = 0; $i < count($pictures); $i++) {
+            $picture = $pictures->shift();
+            if (empty($picture['icon'])) {
+                $picture['icon'] = '/themes/RY/icr/imgs/timg.jpg';
+            }
+            $pictures->push($picture);
+        }
+        while (count($pictures) < 6) {
+            $picture = [
+                'icon' => '/themes/RY/icr/imgs/timg.jpg',
+                'name' => '待添加',
+            ];
+            $pictures->push($picture);
         }
     }
 
