@@ -8,6 +8,7 @@
  */
 namespace app\icr\controller;
 
+use app\icr\model\SchoolModel;
 use cmf\controller\HomeBaseController;
 
 class HeadController extends HomebaseController{
@@ -22,6 +23,8 @@ class HeadController extends HomebaseController{
         $this->assign('recruit_active', "");
         $this->assign('join_active', "");
         $this->assign('about_active', "");
+        $school_model = new SchoolModel();
+        $this->assign('city_list',$school_model->getCityList());
         $this->setLoginHtml();
     }
 

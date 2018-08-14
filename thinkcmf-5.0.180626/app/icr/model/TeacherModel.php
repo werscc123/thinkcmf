@@ -21,9 +21,16 @@ class TeacherModel extends Model
      */
     public function getTeacherList($limit=100)
     {
-        return Db::name('icr_teacher')
-            ->limit($limit)
-            ->select();
+        $limits = explode(',',$limit);
+        if (!count($limits)) {
+            return Db::name('icr_teacher')
+                ->limit(intval($limits[0]),intval($limits[1]))
+                ->select();
+        } else {
+            return Db::name('icr_teacher')
+                ->limit($limit)
+                ->select();
+        }
     }
 
     /**

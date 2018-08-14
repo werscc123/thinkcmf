@@ -320,9 +320,20 @@ class CourseModel extends Model
      * @param $phone
      * @return
      */
-    public function getCourseByLevel($level)
+    public function getCourseByLevel($level = 1)
     {
-        return Db::name('icr_course')->where('level',$level)->select();
+        switch ($level) {
+            case 1:
+                return Db::name('icr_course')->where('level >= 1 AND level <= 3')->select();
+                break;
+            case 2:
+                return Db::name('icr_course')->where('level >= 3 AND level <= 6')->select();
+                break;
+            case 3:
+                return Db::name('icr_course')->where('level >= 6 AND level <= 9')->select();
+                break;
+        }
+        return Db::name('icr_course')->where('level',1)->select();
     }
 
     /**

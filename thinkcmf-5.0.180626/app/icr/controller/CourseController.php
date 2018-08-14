@@ -17,10 +17,17 @@ class CourseController extends HomebaseController{
 
     // 首页
     public function index(){
+        $data = $this->request->post();
         $head_controller = new HeadController();
         $head_controller->setHeaderActive("course");
         $course_model = new CourseModel();
-        $course = $course_model->getCourseList();
+        $param = $this->request->param();
+        $s_level = empty($param['s_level']) ? 1: $param['s_level'];
+        $level_class = $this->getSearchLevel($s_level);
+        $this->assign('level_class', $level_class);
+        $page = empty($data['page']) ? 1 : $data['page'];
+//        $limit = $this->getCourseLimitFromPage($page);
+        $course = $course_model->getCourseByLevel($s_level);
         $feedback_model = new FeedbackModel();
         $feedback_video = $feedback_model->getFeedbackByType(2);
         $feedback_text = $feedback_model->getFeedbackByType(1);
@@ -34,7 +41,6 @@ class CourseController extends HomebaseController{
             $feedback_model->transformContentToHtml($feedback);
             $feedback_text->push($feedback);
         }
-        $data = $this->request->post();
         $level = empty($data['level']) ? 1 : $data['level'];
         echo $level;
         $course_level = $this->getCourseByLevel($level);
@@ -407,6 +413,45 @@ class CourseController extends HomebaseController{
             ];
             $feedbacks->push($feedback);
         }
+    }
 
+    private function getCourseLimitFromPage($page)
+    {
+        switch ($page) {
+            case 1:
+                return "0,6";
+            case 2:
+                return "6,12";
+            case 4:
+                return "12,18";
+            case 5:
+                return "18,24";
+            default:
+                return 100;
+        }
+    }
+
+    private function getSearchLevel($s_level)
+    {
+        $level_class = [
+            "tab-item",
+            "tab-item",
+            "tab-item",
+        ];
+        switch ($s_level)
+        {
+            case 1:
+                $level_class[0] = "tab-item active";
+                break;
+            case 2:
+                $level_class[1] = "tab-item active";
+                break;
+            case 3:
+                $level_class[2] = "tab-item active";
+                break;
+            default:
+                break;
+        }
+        return $level_class;
     }
 }

@@ -18,8 +18,12 @@ class TeacherController extends HomebaseController{
         $head_controller = new HeadController();
         $head_controller->setHeaderActive("teacher");
         $teacher_model = new TeacherModel();
-        $teacher = $teacher_model->getTeacherList();
+        $data = $this->request->param();
+        $page = empty($data['page']) ? 1 : $data['page'];
+        $limit = $this->getTeacherLimitFromPage($page);
+        $teacher = $teacher_model->getTeacherList($limit);
         $this->complementTeacher($teacher);
+        $this->assign('page',$page);
         $this->assign('teacher', $teacher);
         return $this->fetch(':teachers');
     }
@@ -221,5 +225,21 @@ class TeacherController extends HomebaseController{
 //        }
 //        echo $resume;
 //        $teacher['resume'] = $resume;
+    }
+
+    private function getTeacherLimitFromPage($page)
+    {
+        switch ($page) {
+            case 1:
+                return "0,6";
+            case 2:
+                return "6,12";
+            case 3:
+                return "12,18";
+            case 4:
+                return "18,24";
+            default:
+                return 100;
+        }
     }
 }

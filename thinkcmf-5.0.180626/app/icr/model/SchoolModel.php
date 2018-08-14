@@ -227,6 +227,12 @@ class SchoolModel extends Model
     {
         return Db::name('icr_school')->where('id',$id)->find();
     }
+    /**
+     * 查询city
+     */
+    public function getCityList(){
+        return Db::name('icr_school')->distinct(true)->field(['city'])->select();
+    }
 
     /**
      * 通过名称查询校区
@@ -255,7 +261,7 @@ class SchoolModel extends Model
      */
     public function getSchoolByCity($city)
     {
-        return Db::name('icr_school')->where('city',"%".$city."%")->select();
+        return Db::name('icr_school')->where('city','like',"%".$city."%")->select();
     }
 
     /**
