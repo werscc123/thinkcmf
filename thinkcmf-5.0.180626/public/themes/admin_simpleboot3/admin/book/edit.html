@@ -1,0 +1,52 @@
+<include file="public@header"/>
+</head>
+<body>
+<div class="wrap">
+    <ul class="nav nav-tabs">
+        <li><a href="{:url('book/index')}">{:lang('ADMIN_BOOK_INDEX')}</a></li>
+        <li><a href="{:url('book/add')}">{:lang('ADMIN_BOOK_ADD')}</a></li>
+        <li class="active" ><a>{:lang('ADMIN_BOOK_EDIT')}</a></li>
+    </ul>
+    <form method="post" class="form-horizontal js-ajax-form margin-top-20" action="{:url('book/editPost')}">
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">ID:</label>
+            <div class="col-md-6 col-sm-10">
+                <input type="text" class="form-control" name="id" value="{$id}" readonly="readonly">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label"><span class="form-required">*</span>电话号码:</label>
+            <div class="col-md-6 col-sm-10">
+                <input type="text" class="form-control" name="phone" value="{$phone}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label"><span class="form-required">*</span>CID:</label>
+            <div class="col-md-6 col-sm-10">
+                <input type="text" class="form-control" name="cid" value="{$cid}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label"><span class="form-required">*</span>通知（通知0/未通知1）:</label>
+            <select class="btn btn-primary dropdown-toggle" name="has_notified" style="margin-left:15px;width: 100px;text-align: center">
+                {$option_html}
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">预定时间:</label>
+            <div class="col-md-6 col-sm-10">
+                <input type="text" class="form-control" name="time" value="{$time}" readonly="readonly">
+            </div>
+        </div>
+
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary js-ajax-submit">{:lang("SAVE")}</button>
+            <a class="btn btn-default" href="{:url('book/index')}">返回</a>
+        </div>
+    </form>
+
+</div>
+<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

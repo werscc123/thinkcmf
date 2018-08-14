@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="275" height="140" viewBox="0 0 275 140">
+    <g fill="none" fill-rule="evenodd">
+        <path fill="#FFF" d="M0 0h275v140H0z" opacity=".01"/>
+        <text fill="#FC384C" font-family="MEllePRC-Xbold, MElle PRC" font-size="96" font-weight="bold" letter-spacing="5.333">
+            <tspan x="83.973" y="102">2</tspan>
+        </text>
+        <text fill="#FC384C" font-family="MEllePRC-Xbold, MElle PRC" font-size="72" font-weight="bold" letter-spacing="4">
+            <tspan x="146.48" y="101">5</tspan>
+        </text>
+        <text fill="#FC384C" font-family="HannotateSC-W7, Hannotate SC" font-size="20" font-weight="bold">
+            <tspan x="196" y="51">万</tspan>
+        </text>
+    </g>
+</svg>

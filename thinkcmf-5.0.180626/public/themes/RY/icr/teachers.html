@@ -1,0 +1,44 @@
+<!--#include virtual="./head.html" -->
+<include file="../public/themes/RY/icr/head.html" />
+<div class="main-img">
+    <img src="/themes/RY/icr/imgs/banner3.jpg" />
+</div>
+<div class="main">
+    <div class="item">
+        <div class="teachers">
+            <div class="headteacher">
+                <div class="teacher-avatar">
+                    <img src ="<?=$teacher[0]['icon']?>"/>
+                </div>
+                <div class="information">
+                    <div class="name"><?=$teacher[0]['name']?></div>
+                    <div class="content"><?=$teacher[0]['resume']?></div>
+                    <div class="idea"><?=$teacher[0]['idea']?></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+            <div class="teacher-list">
+                <div class="teacher-item"><div class="img"><img src="<?=$teacher[0]['icon']?>" /></div><div class="info"><div class="name"><?=$teacher[0]['name']?></div><div class="title"><?=$teacher[0]['position']?></div></div></div>
+                <div class="teacher-item"><div class="img"><img src="<?=$teacher[1]['icon']?>" /></div><div class="info"><div class="name"><?=$teacher[1]['name']?></div><div class="title"><?=$teacher[1]['position']?></div></div></div>
+                <div class="teacher-item"><div class="img"><img src="<?=$teacher[2]['icon']?>" /></div><div class="info"><div class="name"><?=$teacher[2]['name']?></div><div class="title"><?=$teacher[2]['position']?></div></div></div>
+                <div class="teacher-item"><div class="img"><img src="<?=$teacher[3]['icon']?>" /></div><div class="info"><div class="name"><?=$teacher[3]['name']?></div><div class="title"><?=$teacher[3]['position']?></div></div></div>
+                <div class="teacher-item"><div class="img"><img src="<?=$teacher[4]['icon']?>" /></div><div class="info"><div class="name"><?=$teacher[4]['name']?></div><div class="title"><?=$teacher[4]['position']?></div></div></div>
+                <div class="teacher-item"><div class="img"><img src="<?=$teacher[5]['icon']?>" /></div><div class="info"><div class="name"><?=$teacher[5]['name']?></div><div class="title"><?=$teacher[5]['position']?></div></div></div>
+                <div class="clear"></div>
+            </div>
+            <div class="page">
+                <div class="previous">上一页</div>
+                <div class="page-list">
+                    <div class="list-item active"><a href="{:url('teacher/index', array('page'=>1))}">1</a></div>
+                    <div class="list-item"><a href="{:url('teacher/index', array('page'=>2))}">2</a></div>
+                    <div class="list-item"><a href="{:url('teacher/index', array('page'=>3))}">3</a></div>
+                    <div class="list-item"><a href="{:url('teacher/index', array('page'=>4))}">4</a></div>
+                </div>
+                <div class="next">下一页</div>
+            </div>
+        </div>
+    </div>
+</div>
+<include file="../public/themes/RY/icr/foot.html" />
+<!--#include virtual="./foot.html" -->

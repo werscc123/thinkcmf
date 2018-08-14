@@ -1,0 +1,40 @@
+<include file="public@header"/>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li><a href="{:url('recruit/index')}">{:lang('ADMIN_RECRUIT_INDEX')}</a></li>
+        <li class="active"><a href="{:url('recruit/add')}">{:lang('ADMIN_RECRUIT_ADD')}</a></li>
+        <!--<li><a  href="{:url('nav/edit')}" >{:lang('ADMIN_NAV_EDIT')}</a></li>-->
+    </ul>
+    <form method="post" class="form-horizontal js-ajax-form margin-top-20" action="{:url('recruit/addPost')}">
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label"><span class="form-required">*</span>职位:</label>
+            <div class="col-md-6 col-sm-10">
+                <input type="text" class="form-control" name="position" value="">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label"><span class="form-required">*</span>描述:</label>
+            <div class="col-md-6 col-sm-10">
+                <input type="text" class="form-control" name="desc" value="">
+            </div>
+        </div>
+        <div class="form-group">
+        <label class="col-sm-2 control-label"><span class="form-required">*</span>要求:</label>
+            <div class="col-md-6 col-sm-10">
+                <input type="text" class="form-control" name="require" value="">
+            </div>
+        </div>
+
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary js-ajax-submit">{:lang("SAVE")}</button>
+            <a class="btn btn-default" href="{:url('recruit/index')}">返回</a>
+        </div>
+    </form>
+
+</div>
+<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

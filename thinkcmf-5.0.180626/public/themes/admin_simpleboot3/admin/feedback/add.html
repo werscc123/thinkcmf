@@ -1,0 +1,58 @@
+<include file="public@header"/>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li><a href="{:url('feedback/index')}">{:lang('ADMIN_FEEDBACK_INDEX')}</a></li>
+        <li class="active"><a href="{:url('feedback/add')}">{:lang('ADMIN_FEEDBACK_ADD')}</a></li>
+        <!--<li><a  href="{:url('nav/edit')}" >{:lang('ADMIN_NAV_EDIT')}</a></li>-->
+    </ul>
+    <form method="post" class="form-horizontal js-ajax-form margin-top-20" action="{:url('feedback/addPost')}">
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label"><span class="form-required">*</span>UID:</label>
+            <div class="col-md-6 col-sm-10">
+                <input type="text" class="form-control" name="uid" value="">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label"><span class="form-required">*</span>CID:</label>
+            <div class="col-md-6 col-sm-10">
+                <input type="text" class="form-control" name="cid" value="">
+            </div>
+        </div>
+        <div class="form-group">
+        <label class="col-sm-2 control-label"><span class="form-required">*</span>类型（文字1/视频2）:</label>
+            <select class="btn btn-primary dropdown-toggle" name="type" style="margin-left:15px;width: 100px;text-align: center">
+                {$option_html}
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">标题:</label>
+            <div class="col-md-6 col-sm-10">
+                <input type="text" class="form-control" name="title" value="">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">内容（文字/视频URL）:</label>
+            <div class="col-md-6 col-sm-10">
+                <textarea class="form-control" name="content" rows="5" cols="57"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">封面URL:</label>
+            <div class="col-md-6 col-sm-10">
+                <input type="text" class="form-control" name="icon" value="">
+            </div>
+        </div>
+
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary js-ajax-submit">{:lang("SAVE")}</button>
+            <a class="btn btn-default" href="{:url('feedback/index')}">返回</a>
+        </div>
+    </form>
+
+</div>
+<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

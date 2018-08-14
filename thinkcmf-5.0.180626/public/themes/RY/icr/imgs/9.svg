@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="275" height="140" viewBox="0 0 275 140">
+    <g fill="none" fill-rule="evenodd">
+        <path fill="#FFF" d="M0 0h275v140H0z" opacity=".01"/>
+        <text fill="#FC384C" font-family="MEllePRC-Xbold, MElle PRC" font-size="96" font-weight="bold" letter-spacing="5.333">
+            <tspan x="109.473" y="102">9</tspan>
+        </text>
+        <text fill="#FC384C" font-family="HannotateSC-W7, Hannotate SC" font-size="20" font-weight="bold">
+            <tspan x="178" y="100">个</tspan>
+        </text>
+    </g>
+</svg>

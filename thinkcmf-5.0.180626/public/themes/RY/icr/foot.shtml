@@ -1,0 +1,141 @@
+<div class="right_column">
+    <div class="item">
+        <img src="/themes/RY/icr/imgs/qq.png" />
+        <span class="blue">QQ咨询</span>
+    </div>
+    <div class="item">
+        <img src="/themes/RY/icr/imgs/phone.png" />
+        <span class="orange">电话咨询</span>
+    </div>
+    <div class="item">
+        <img src="/themes/RY/icr/imgs/wechat1.png" />
+        <span class="gre">关注微信</span>
+    </div>
+</div>
+<footer>
+    <div class="footer">
+        <div class="footer-listen">
+            <img  src="/themes/RY/icr/imgs/eye-img.svg"/>
+        </div>
+        <div class="footer-main">
+            <div class="row">
+                <div class="qrcode">
+                    <div class="wechat">
+                        <img src="/themes/RY/icr/imgs/wechat.png" />
+                        <span>关注微信</span>
+                    </div>
+                    <div class="webo">
+                        <img src="/themes/RY/icr/imgs/webo.png" />
+                        <span>关注微博</span>
+                    </div>
+                </div>
+                <div class="menu-list">
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li>师资力量</li>
+                        <li>人才招聘</li>
+                        <li>商务加盟</li>
+                        <li>校区环境</li>
+                        <li>课程内容</li>
+                        <li>文化活动</li>
+                        <li>家长评语</li>
+                    </ul>
+                </div>
+                <div class="tel-phone">
+                    <div class="tel-title">联系总部</div>
+                    <div class="tel-number">(+65)65918743</div>
+                    <div class="tel-number">(+65)64841271</div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="row">
+                <ul class="national">
+                    <li>
+                        <a href="#">
+                            <div>
+                                <img src="/themes/RY/icr/imgs/australia-flag.svg" />
+                                <span>Australia</span>
+                                <span>澳大利亚官网</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="/themes/RY/icr/imgs/china-flag.svg" />
+                            <span>Australia</span>
+                            <span>中国官网</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="/themes/RY/icr/imgs/hk-flag.svg" />
+                            <span>Australia</span>
+                            <span>中国香港官网</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="/themes/RY/icr/imgs/indonesia-flag.svg" />
+                            <span>Australia</span>
+                            <span>印度尼西亚官网</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="/themes/RY/icr/imgs/malaysia-flag.svg" />
+                            <span>Australia</span>
+                            <span>马来西亚官网</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="/themes/RY/icr/imgs/myanmar-flag.svg" />
+                            <span>Australia</span>
+                            <span>缅甸管网</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="/themes/RY/icr/imgs/singapore-flag.svg" />
+                            <span>Australia</span>
+                            <span>新家坡官网</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="/themes/RY/icr/imgs/thailand-flag.svg" />
+                            <span>Australia</span>
+                            <span>印度官网</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="/themes/RY/icr/imgs/vietnam-flag.svg" />
+                            <span>Australia</span>
+                            <span>越南官网</span>
+                        </div>
+                    </li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <div class="row">
+                <div class="more">
+                    查看全部20个国家
+                </div>
+            </div>
+            <div class="row">
+                <div class="footer-info">
+                    <div><img src="/themes/RY/icr/imgs/xy.png" /></div>
+                    <div>粤ICP备案23597198号</div>
+                    <div>&copy;2017 I CAN READ&reg;. All rights reserved</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</footer>
+</body>
+<script src="js/vendor/modernizr-3.6.0.min.js"></script>
+<script src="js/vendor/jquery-3.3.1.min.js"></script>
+<script src="js/main.js"></script>
+</html>

@@ -1,0 +1,97 @@
+<!--#include virtual="./head.html" -->
+<include file="../public/themes/RY/icr/head.html" />
+<div class="main-img">
+    <img src="/themes/RY/icr/imgs/banner4.jpg" />
+</div>
+<div class="main">
+    <div class="item">
+        <div class="school-path">
+            <h1><?=$school[0]['city']?>校区</h1>
+            <div class="map-info">
+                <div class="map" id="map" style="width: 600px;height: 500px;"></div>
+                <div class="point">
+                    <div class="point-item">
+                        <div class="point-title"><?=$school[0]['name']?><i name="back" class="fa fa-chevron-up"></i></div>
+                        <div class="point-content"><i class="fa fa-map-marker"></i><?=$school[0]['location']?></div>
+                        <div class="point-button">免费预约试听<i class="fa fa-angle-double-right"></i></div>
+                    </div>
+                    <div class="point-item">
+                        <div class="point-title"><?=$school[1]['name']?><i name="back" class="fa fa-chevron-up"></i></div>
+                        <div class="point-content"><i class="fa fa-map-marker"></i><?=$school[1]['location']?></div>
+                        <div class="point-button">免费预约试听<i class="fa fa-angle-double-right"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="item">
+        <div class="school-show">
+            <h1>校区环境</h1>
+            <div class="img-gd">
+                <div class="img-list">
+                    <?=$school_picture?>
+                </div>
+                <div class="img-left"><i class="fa fa-angle-left"></i></div>
+                <div class="img-right"><i class="fa fa-angle-right"></i></div>
+            </div>
+
+        </div>
+    </div>
+    <div class="item">
+        <div class="study">
+            <h1>文化活动</h1>
+            <div class="comment">
+                <div class="comment-item">
+                    <div class="img"><img src="<?=$school_activity[0]['icon']?>" /></div>
+                    <div class="title"><?=$school_activity[0]['name']?></div>
+                </div>
+                <div class="comment-item">
+                    <div class="img"><img src="<?=$school_activity[1]['icon']?>" /></div>
+                    <div class="title"><?=$school_activity[1]['name']?></div>
+                </div>
+                <div class="comment-item">
+                    <div class="img"><img src="<?=$school_activity[2]['icon']?>" /></div>
+                    <div class="title"><?=$school_activity[2]['name']?></div>
+                </div>
+                <div class="comment-item">
+                    <div class="img"><img src="<?=$school_activity[3]['icon']?>" /></div>
+                    <div class="title"><?=$school_activity[3]['name']?></div>
+                </div>
+                <div class="comment-item">
+                    <div class="img"><img src="<?=$school_activity[4]['icon']?>" /></div>
+                    <div class="title"><?=$school_activity[4]['name']?></div>
+                </div>
+                <div class="comment-item">
+                    <div class="img"><img src="<?=$school_activity[5]['icon']?>" /></div>
+                    <div class="title"><?=$school_activity[5]['name']?></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=s0x1Cj9VeZ6bVRI249olQM0V"></script>
+<script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("map");
+    var point = new BMap.Point(116.404, 39.915);
+    map.centerAndZoom(point, 15);
+    // 编写自定义函数,创建标注
+    function addMarker(point){
+        var marker = new BMap.Marker(point);
+        map.addOverlay(marker);
+    }
+    // 随机向地图添加25个标注
+    var bounds = map.getBounds();
+    var sw = bounds.getSouthWest();
+    var ne = bounds.getNorthEast();
+    var lngSpan = Math.abs(sw.lng - ne.lng);
+    var latSpan = Math.abs(ne.lat - sw.lat);
+    for (var i = 0; i < 25; i ++) {
+        var point = new BMap.Point(sw.lng + lngSpan * (Math.random() * 0.7), ne.lat - latSpan * (Math.random() * 0.7));
+        addMarker(point);
+    }
+</script>
+<include file="../public/themes/RY/icr/foot.html" />
+<!--#include virtual="./foot.html" -->

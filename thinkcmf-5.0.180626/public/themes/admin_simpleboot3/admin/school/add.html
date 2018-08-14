@@ -1,0 +1,49 @@
+<include file="public@header"/>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li><a href="{:url('school/index')}">{:lang('ADMIN_SCHOOL_INDEX')}</a></li>
+        <li class="active"><a href="{:url('school/add')}">{:lang('ADMIN_SCHOOL_ADD')}</a></li>
+        <!--<li><a  href="{:url('nav/edit')}" >{:lang('ADMIN_NAV_EDIT')}</a></li>-->
+    </ul>
+    <form method="post" class="form-horizontal js-ajax-form margin-top-20" action="{:url('school/addPost')}">
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label"><span class="form-required">*</span>校区名:</label>
+            <div class="col-md-6 col-sm-10">
+                <input type="text" class="form-control" name="name" value="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label"><span class="form-required">*</span>位置:</label>
+            <div class="col-md-6 col-sm-10">
+                <input type="text" class="form-control" name="location" value="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label"><span class="form-required">*</span>城市:</label>
+            <div class="col-md-6 col-sm-10">
+                <input type="text" class="form-control" name="city" value="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label"><span class="form-required">*</span>坐标（X,Y）:</label>
+            <div class="col-md-6 col-sm-10">
+                <input type="text" class="form-control" name="coordinate" value="">
+            </div>
+        </div>
+
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary js-ajax-submit">{:lang("SAVE")}</button>
+            <a class="btn btn-default" href="{:url('school/index')}">返回</a>
+        </div>
+    </form>
+
+</div>
+<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>
