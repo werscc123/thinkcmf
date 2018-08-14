@@ -1,5 +1,5 @@
-﻿# Host:   (Version: 5.5.53)
-# Date: 2018-08-12 20:33:37
+﻿# Host: localhost  (Version: 5.5.53)
+# Date: 2018-08-14 14:30:06
 # Generator: MySQL-Front 5.3  (Build 4.234)
 
 /*!40101 SET NAMES utf8 */;
@@ -199,7 +199,7 @@ CREATE TABLE `cmf_icr_activity` (
   `start_time` datetime DEFAULT NULL COMMENT '开始时间',
   `end_time` datetime DEFAULT NULL COMMENT '结束时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COMMENT='文化活动';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT='文化活动';
 
 #
 # Data for table "cmf_icr_activity"
@@ -260,7 +260,7 @@ CREATE TABLE `cmf_icr_cteacher_intersect` (
   `cid` int(11) NOT NULL DEFAULT '0' COMMENT '课程id',
   `tid` int(11) NOT NULL DEFAULT '0' COMMENT '教师id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COMMENT='课程教师交叉表';
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COMMENT='课程教师交叉表';
 
 #
 # Data for table "cmf_icr_cteacher_intersect"
@@ -334,13 +334,13 @@ CREATE TABLE `cmf_icr_feedback` (
   `icon` varchar(255) DEFAULT NULL COMMENT '反馈封面',
   `title` varchar(255) DEFAULT NULL COMMENT '反馈标题',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COMMENT='课程反馈表';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COMMENT='课程反馈表';
 
 #
 # Data for table "cmf_icr_feedback"
 #
 
-INSERT INTO `cmf_icr_feedback` VALUES (1,'有特色，较专业\r\n有自己的教学理念\r\n能在日常生活中自然地表达\r\n基础的词，句',1,1,1,'/themes/RY/icr/imgs/gerad-copy.jpg','Amy 小朋友家长的评语'),(2,'失望，不满意',2,1,1,'/themes/RY/icr/imgs/gerad-copy.jpg','Course2的评语'),(3,'https://gslb.miaopai.com/stream/8QFqmRUVEZJw5Tlawc~7yTDzrpZLD9cBS6ntWA__.mp4?ssig=5928e7147806b18e3ebf38652ed75f71&time_stamp=1533988995902&cookie_id=&vend=1&os=3&partner=1&platform=2&cookie_id=&refer=miaopai&scid=8QFqmRUVEZJw5Tlawc%7E7yTDzrpZLD9cBS6ntWA_',1,1,2,'/themes/RY/icr/imgs/gerad-copy.jpg','视频测试'),(4,'测试3',1,2,1,'测试','测试2');
+INSERT INTO `cmf_icr_feedback` VALUES (1,'有特色，较专业\r\n有自己的教学理念\r\n能在日常生活中自然地表达\r\n基础的词，句',1,1,1,'/themes/RY/icr/imgs/gerad-copy.jpg','Amy 小朋友家长的评语'),(2,'失望，不满意',2,1,1,'/themes/RY/icr/imgs/gerad-copy.jpg','Course2的评语'),(3,'https://gslb.miaopai.com/stream/8QFqmRUVEZJw5Tlawc~7yTDzrpZLD9cBS6ntWA__.mp4?ssig=5928e7147806b18e3ebf38652ed75f71&time_stamp=1533988995902&cookie_id=&vend=1&os=3&partner=1&platform=2&cookie_id=&refer=miaopai&scid=8QFqmRUVEZJw5Tlawc%7E7yTDzrpZLD9cBS6ntWA_',1,1,2,'/themes/RY/icr/imgs/gerad-copy.jpg','视频测试'),(4,'测试3',1,2,1,NULL,'测试2');
 
 #
 # Structure for table "cmf_icr_picture"
@@ -374,7 +374,7 @@ CREATE TABLE `cmf_icr_recruit` (
   `end_time` varchar(255) DEFAULT NULL COMMENT '结束时间',
   `type` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COMMENT='招聘';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT='招聘';
 
 #
 # Data for table "cmf_icr_recruit"
@@ -410,14 +410,15 @@ CREATE TABLE `cmf_icr_school` (
   `name` varchar(255) DEFAULT NULL COMMENT '名称',
   `location` varchar(255) DEFAULT NULL COMMENT '地址',
   `city` varchar(255) DEFAULT NULL COMMENT '所在城市',
+  `coordinate` varchar(255) DEFAULT NULL COMMENT '地图上的坐标',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COMMENT='校区';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COMMENT='校区';
 
 #
 # Data for table "cmf_icr_school"
 #
 
-INSERT INTO `cmf_icr_school` VALUES (1,'思明中心','厦门市思明区莲前西路2号莲富大厦3H','厦门');
+INSERT INTO `cmf_icr_school` VALUES (1,'思明中心','厦门市思明区莲前西路2号莲富大厦3H','厦门',NULL),(2,'测试','测试','测试',NULL),(3,'pfan8','测试','深圳市','123,213');
 
 #
 # Structure for table "cmf_icr_teacher"
@@ -435,13 +436,13 @@ CREATE TABLE `cmf_icr_teacher` (
   `icon` varchar(255) DEFAULT NULL,
   `idea` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COMMENT='教师';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT='教师';
 
 #
 # Data for table "cmf_icr_teacher"
 #
 
-INSERT INTO `cmf_icr_teacher` VALUES (1,'Gread','英语老师','&lt;div class=&quot;content&quot;&gt;Gerad老师毕业于南昆士兰大学，获得国际关系荣誉学士学位，教育学荣誉学士学位。&lt;br/&gt;曾在日本担任英语教师，现在新家坡I Can Read 担任英语阅读教师。&lt;br/&gt;教学之余他还喜欢滑板滑雪，阅读，电脑游戏和各类美食&lt;/div&gt;\r\n                    &lt;div class=&quot;idea&quot;&gt;教学理念——对每个人来讲，教学和学习都应该是一件开心的','',1,0,'/themes/RY/icr/imgs/headtecher.png','教学理念——对每个人来讲，教学和学习都应该是一件开心的事。'),(2,'Michelle','英语阅读老师','——英语阅读老师',NULL,1,NULL,'/themes/RY/icr/imgs/gerad-copy.jpg',NULL);
+INSERT INTO `cmf_icr_teacher` VALUES (1,'Gread','英语老师','Gerad老师毕业于南昆士兰大学，获得国际关系荣誉学士学位，教育学荣誉学士学位。\r\n曾在日本担任英语教师，现在新家坡I Can Read 担任英语阅读教师。\r\n教学之余他还喜欢滑板滑雪，阅读，电脑游戏和各类美食','',1,0,'/themes/RY/icr/imgs/headtecher.png','教学理念——对每个人来讲，教学和学习都应该是一件开心的事。'),(2,'Michelle','英语阅读老师','——英语阅读老师',NULL,1,NULL,'/themes/RY/icr/imgs/gerad-copy.jpg',NULL);
 
 #
 # Structure for table "cmf_icr_tu_intersect"
@@ -497,7 +498,7 @@ CREATE TABLE `cmf_nav` (
   `name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '导航位置名称',
   `remark` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COMMENT='前台导航位置表';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT='前台导航位置表';
 
 #
 # Data for table "cmf_nav"
@@ -950,7 +951,7 @@ CREATE TABLE `cmf_user` (
   `user_activation_key` varchar(60) NOT NULL DEFAULT '' COMMENT '激活码',
   `mobile` varchar(20) NOT NULL DEFAULT '' COMMENT '中国手机不带国家代码，国际手机号格式为：国家代码-手机号',
   `more` text COMMENT '扩展属性',
-  `near_sid` int(11) DEFAULT NULL,
+  `near_school` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_login` (`user_login`),
   KEY `user_nickname` (`user_nickname`)
@@ -960,7 +961,7 @@ CREATE TABLE `cmf_user` (
 # Data for table "cmf_user"
 #
 
-INSERT INTO `cmf_user` VALUES (1,1,0,0,1533815909,1,1,0.00,1532877163,1,'pfan8','###d0f2a4c5864a955e1018dc0daa809356','pfan8','fqwgc8@outlook.com','','','','127.0.0.1','','',NULL,1),(2,1,0,0,1533776170,0,0,0.00,0,1,'admin','###de80d66ce58ad0fcfd888f89f99eca87','','test@test.com','','','','127.0.0.1','','',NULL,1),(3,1,0,0,0,0,0,0.00,0,1,'test','','test','','','','','','','',NULL,1);
+INSERT INTO `cmf_user` VALUES (1,1,0,0,1534220850,3,3,0.00,1532877163,1,'pfan8','###d0f2a4c5864a955e1018dc0daa809356','pfan8','fqwgc8@outlook.com','','','','127.0.0.1','','',NULL,'1'),(2,1,0,0,1534083654,0,0,0.00,0,1,'admin','###de80d66ce58ad0fcfd888f89f99eca87','','test@test.com','','','','127.0.0.1','','',NULL,'1'),(3,1,0,0,0,0,0,0.00,0,1,'test','','test','','','','','','','',NULL,'1');
 
 #
 # Structure for table "cmf_user_action"
@@ -1112,13 +1113,13 @@ CREATE TABLE `cmf_user_score_log` (
   `score` int(11) NOT NULL DEFAULT '0' COMMENT '更改积分，可以为负',
   `coin` int(11) NOT NULL DEFAULT '0' COMMENT '更改金币，可以为负',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COMMENT='用户操作积分等奖励日志表';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COMMENT='用户操作积分等奖励日志表';
 
 #
 # Data for table "cmf_user_score_log"
 #
 
-INSERT INTO `cmf_user_score_log` VALUES (1,1,1533644669,'login',1,1);
+INSERT INTO `cmf_user_score_log` VALUES (1,1,1533644669,'login',1,1),(2,1,1534082948,'login',1,1),(3,1,1534086560,'login',1,1);
 
 #
 # Structure for table "cmf_user_token"
